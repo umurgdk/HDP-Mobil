@@ -24,8 +24,6 @@ namespace Hdp.TouchRx.ViewControllers
         {
             base.ViewDidLoad ();
 
-            AutomaticallyAdjustsScrollViewInsets = true;
-
             TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
             TableView.Source = new NewsTableViewSource (TableView, ViewModel.VisibleArticles);
         }

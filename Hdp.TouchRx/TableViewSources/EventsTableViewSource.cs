@@ -31,22 +31,8 @@ namespace Hdp.TouchRx.TableViewSources
             var viewModel = (EventItemViewModel)ItemAt (indexPath);
 
             demoCell.ViewModel = viewModel;
-//            demoCell.SetNeedsLayout ();
-//            demoCell.LayoutIfNeeded ();
             CGSize size = demoCell.ContentView.SystemLayoutSizeFittingSize (UIView.UILayoutFittingCompressedSize);
             return size.Height + 1;
-
-//            if (cell != null) {
-//                cell.SetNeedsLayout ();
-//                cell.LayoutIfNeeded ();
-////                return cell.Bounds.Height;
-////                var size = cell.SizeThatFits (new CGSize (cell.ContentView.Bounds.Width, 1000));
-//                CGSize size = cell.ContentView.SystemLayoutSizeFittingSize (UIView.UILayoutFittingCompressedSize);
-//                return size.Height + 1;
-//                return cell.ContentView.Bounds.Height;
-//            }
-//
-//            return base.GetHeightForRow (tableView, indexPath);
         }
     }
 }
