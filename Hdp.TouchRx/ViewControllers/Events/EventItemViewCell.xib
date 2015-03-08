@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+        <mutableArray key="Muli-Regular.ttf">
+            <string>Muli</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="cxk-wN-pdQ" customClass="EventItemViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyH-45-RAC">
+                        <rect key="frame" x="20" y="0.0" width="1" height="101"/>
+                        <color key="backgroundColor" white="0.84878472222222234" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="101" id="e28-uT-hXP"/>
+                            <constraint firstAttribute="width" constant="1" id="unZ-2p-Tqp"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1a-41-QnM">
+                        <rect key="frame" x="11" y="6" width="18" height="22"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIconSm.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Ju-V7-R8n">
+                                <rect key="frame" x="1" y="3" width="16" height="16"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="4WB-n1-dcJ"/>
+                            <constraint firstItem="1Ju-V7-R8n" firstAttribute="top" secondItem="T1a-41-QnM" secondAttribute="top" constant="3" id="5iW-jJ-XpC"/>
+                            <constraint firstAttribute="bottom" secondItem="1Ju-V7-R8n" secondAttribute="bottom" constant="3" id="NZJ-6Q-F6V"/>
+                            <constraint firstItem="1Ju-V7-R8n" firstAttribute="leading" secondItem="T1a-41-QnM" secondAttribute="leading" constant="1" id="RDD-wJ-PS4"/>
+                            <constraint firstAttribute="trailing" secondItem="1Ju-V7-R8n" secondAttribute="trailing" constant="1" id="ezZ-l9-RAM"/>
+                            <constraint firstAttribute="height" constant="22" id="pvn-Ax-ujw"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Malesuada Nullam Sit Fringilla" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTf-q3-J4Z">
+                        <rect key="frame" x="40" y="38" width="272" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="272" id="59r-s6-Yh7"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="BvG-yl-AHC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Muli" family="Muli" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="ClockIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bfa-HS-lna">
+                        <rect key="frame" x="40" y="69" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Xrx-ZG-k9O"/>
+                            <constraint firstAttribute="height" constant="16" id="gSx-Zl-XO4"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="LocationIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="am0-nb-p8f">
+                        <rect key="frame" x="118" y="68" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="TUd-qL-PFm"/>
+                            <constraint firstAttribute="height" constant="16" id="m8f-6v-Ta3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="HDP Ankara Il Binasi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCJ-Qo-re6">
+                        <rect key="frame" x="139" y="65" width="165" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="sgv-zj-cMP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <color key="textColor" red="0.94509803921568625" green="0.7686274509803922" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="15:10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5t1-NT-Vdm">
+                        <rect key="frame" x="61" y="66" width="49" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="49" id="1ty-Ud-QeY"/>
+                            <constraint firstAttribute="height" constant="20" id="VPY-3k-mjJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <color key="textColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="4 Mart 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOU-Ko-18C">
+                        <rect key="frame" x="37" y="8" width="275" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="aPv-wm-K0n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="am0-nb-p8f" firstAttribute="leading" secondItem="5t1-NT-Vdm" secondAttribute="trailing" constant="8" id="0Ew-2K-GWv"/>
+                    <constraint firstItem="bfa-HS-lna" firstAttribute="top" secondItem="fTf-q3-J4Z" secondAttribute="bottom" constant="7" id="2fy-uU-dbw"/>
+                    <constraint firstAttribute="trailing" secondItem="fTf-q3-J4Z" secondAttribute="trailing" constant="8" id="2tQ-tz-ddE"/>
+                    <constraint firstItem="qyH-45-RAC" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="20" id="4jK-rQ-1JA"/>
+                    <constraint firstItem="DCJ-Qo-re6" firstAttribute="leading" secondItem="am0-nb-p8f" secondAttribute="trailing" constant="5" id="AiJ-Me-qzW"/>
+                    <constraint firstItem="T1a-41-QnM" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="11" id="Hul-Tg-csN"/>
+                    <constraint firstItem="5t1-NT-Vdm" firstAttribute="leading" secondItem="bfa-HS-lna" secondAttribute="trailing" constant="5" id="KiT-c3-txg"/>
+                    <constraint firstAttribute="bottom" secondItem="qyH-45-RAC" secondAttribute="bottom" id="MDs-15-p8r"/>
+                    <constraint firstItem="DCJ-Qo-re6" firstAttribute="top" secondItem="fTf-q3-J4Z" secondAttribute="bottom" constant="3" id="N5t-Ol-wGr"/>
+                    <constraint firstItem="am0-nb-p8f" firstAttribute="top" secondItem="fTf-q3-J4Z" secondAttribute="bottom" constant="6" id="Ngz-rs-49J"/>
+                    <constraint firstItem="T1a-41-QnM" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="6" id="STw-3z-kDF"/>
+                    <constraint firstItem="fTf-q3-J4Z" firstAttribute="top" secondItem="qOU-Ko-18C" secondAttribute="bottom" constant="13" id="Vdt-qC-Tlo"/>
+                    <constraint firstItem="qOU-Ko-18C" firstAttribute="leading" secondItem="T1a-41-QnM" secondAttribute="trailing" constant="8" id="aHB-W8-PS9"/>
+                    <constraint firstAttribute="trailing" secondItem="DCJ-Qo-re6" secondAttribute="trailing" constant="16" id="cmX-Ku-hKI"/>
+                    <constraint firstAttribute="trailing" secondItem="qOU-Ko-18C" secondAttribute="trailing" constant="8" id="drs-sw-18m"/>
+                    <constraint firstAttribute="bottom" secondItem="bfa-HS-lna" secondAttribute="bottom" constant="16" id="eoF-sO-Y7K"/>
+                    <constraint firstItem="qOU-Ko-18C" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="8" id="j63-EL-yfp"/>
+                    <constraint firstItem="bfa-HS-lna" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="40" id="qZx-A7-Lg3"/>
+                    <constraint firstItem="qyH-45-RAC" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="rDf-Wf-KlJ"/>
+                    <constraint firstItem="fTf-q3-J4Z" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="40" id="rjI-fG-yVa"/>
+                    <constraint firstItem="5t1-NT-Vdm" firstAttribute="top" secondItem="fTf-q3-J4Z" secondAttribute="bottom" constant="4" id="svf-If-hLD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="qOU-Ko-18C" id="r4T-td-esx"/>
+                <outlet property="eventTitleLabel" destination="fTf-q3-J4Z" id="MRY-4S-5Kk"/>
+                <outlet property="iconView" destination="1Ju-V7-R8n" id="9ky-hx-TXL"/>
+                <outlet property="placeLabel" destination="DCJ-Qo-re6" id="tcg-Vn-uhN"/>
+                <outlet property="timeLabel" destination="5t1-NT-Vdm" id="2RL-M6-Ea1"/>
+            </connections>
+            <point key="canvasLocation" x="303" y="318"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CalendarIconSm.png" width="16" height="16"/>
+        <image name="ClockIcon.png" width="16" height="16"/>
+        <image name="LocationIcon.png" width="16" height="16"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="169" id="cxk-wN-pdQ" customClass="ArticleItemViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="afI-Cf-E1f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YO7-Cd-95l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeni Yaşam için LGBTİ Çalıştayı İstanbul'da düzenlendi" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlf-G9-dhe">
+                                <rect key="frame" x="16" y="88" width="288" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kr3-jw-sBx">
+                                <rect key="frame" x="16" y="12" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Y3A-Rn-rgw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Oca 2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1F-Mk-4nD">
+                                <rect key="frame" x="16" y="137" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SnW-27-Ofe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="kr3-jw-sBx" firstAttribute="top" secondItem="YO7-Cd-95l" secondAttribute="top" constant="12" id="4UT-nA-tZU"/>
+                            <constraint firstItem="Qlf-G9-dhe" firstAttribute="leading" secondItem="YO7-Cd-95l" secondAttribute="leading" constant="16" id="9Ic-JT-V1e"/>
+                            <constraint firstAttribute="bottom" secondItem="f1F-Mk-4nD" secondAttribute="bottom" constant="11" id="ELr-HA-fWw"/>
+                            <constraint firstItem="f1F-Mk-4nD" firstAttribute="leading" secondItem="YO7-Cd-95l" secondAttribute="leading" constant="16" id="GDL-D7-l8S"/>
+                            <constraint firstAttribute="trailing" secondItem="kr3-jw-sBx" secondAttribute="trailing" constant="16" id="J09-mo-28m"/>
+                            <constraint firstAttribute="trailing" secondItem="Qlf-G9-dhe" secondAttribute="trailing" constant="16" id="S9E-OM-qTI"/>
+                            <constraint firstAttribute="trailing" secondItem="f1F-Mk-4nD" secondAttribute="trailing" constant="16" id="kHp-zx-78p"/>
+                            <constraint firstItem="f1F-Mk-4nD" firstAttribute="top" secondItem="Qlf-G9-dhe" secondAttribute="bottom" constant="2" id="uI7-yQ-RtU"/>
+                            <constraint firstItem="kr3-jw-sBx" firstAttribute="leading" secondItem="YO7-Cd-95l" secondAttribute="leading" constant="16" id="w4z-kY-DOo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="YO7-Cd-95l" secondAttribute="bottom" constant="-8" id="0Gq-q1-ITF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YO7-Cd-95l" secondAttribute="trailing" constant="-8" id="9Qc-W6-dOk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="afI-Cf-E1f" secondAttribute="bottom" constant="-8" id="Kpz-fz-s0U"/>
+                    <constraint firstItem="afI-Cf-E1f" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" constant="-8" id="R3Q-Qt-OoL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="afI-Cf-E1f" secondAttribute="trailing" constant="-8" id="Tgd-aF-Kh5"/>
+                    <constraint firstItem="YO7-Cd-95l" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" constant="-8" id="d1r-4i-nWY"/>
+                    <constraint firstItem="afI-Cf-E1f" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" constant="-8" id="fEa-dj-RGx"/>
+                    <constraint firstItem="YO7-Cd-95l" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" constant="-8" id="wxY-7H-68n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryLabel" destination="kr3-jw-sBx" id="J4c-lC-2Pu"/>
+                <outlet property="dateLabel" destination="f1F-Mk-4nD" id="2pN-3U-ZA1"/>
+                <outlet property="thumbnailImageView" destination="afI-Cf-E1f" id="T7f-wU-84n"/>
+                <outlet property="titleLabel" destination="Qlf-G9-dhe" id="IJa-lh-a5I"/>
+            </connections>
+            <point key="canvasLocation" x="198" y="350.5"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
