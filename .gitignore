@@ -24,3 +24,7 @@ UpgradeLog.*
 
 # dotCover
 *.dotCover
+
+# packages & components
+packages/
+Components/
