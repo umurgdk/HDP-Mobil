@@ -46,6 +46,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -110,6 +112,12 @@
     <Reference Include="SDWebImage">
       <HintPath>..\Components\sdwebimage-3.7.1.2\lib\ios-unified\SDWebImage.dll</HintPath>
     </Reference>
+    <Reference Include="MarkDownDeep.iOS">
+      <HintPath>..\Components\MarkDownDeep-1.1.1\lib\ios-unified\MarkDownDeep.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonMark">
+      <HintPath>..\packages\CommonMark.NET.0.8.5\lib\portable-net40+sl50+wp80+win+wpa81+MonoAndroid10+MonoTouch10\CommonMark.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -119,6 +127,9 @@
     <InterfaceDefinition Include="ViewControllers\News\ArticleItemViewCell.xib" />
     <InterfaceDefinition Include="Resources\ViewControllers\News\ArticleViewController.xib" />
     <InterfaceDefinition Include="ViewControllers\Events\EventItemViewCell.xib" />
+    <InterfaceDefinition Include="Views\TitleView.xib" />
+    <InterfaceDefinition Include="ViewControllers\Organization\OrganizationMenuItemViewCell.xib" />
+    <InterfaceDefinition Include="ViewControllers\Organization\OrganizationPageViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -154,6 +165,20 @@
     <Compile Include="DemoViewCell.designer.cs">
       <DependentUpon>DemoViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\Organization\OrganizationMenuItemViewCell.cs" />
+    <Compile Include="ViewControllers\Organization\OrganizationMenuItemViewCell.designer.cs">
+      <DependentUpon>OrganizationMenuItemViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Organization\OrganizationsMenuCollectionViewController.cs" />
+    <Compile Include="ViewControllers\BaseCollectionViewController.cs" />
+    <Compile Include="CollectionViewSources\OrganizationMenuCollectionViewSource.cs" />
+    <Compile Include="CollectionViewSources\BaseCollectionViewSource.cs" />
+    <Compile Include="ViewControllers\Organization\OrganizationPageViewController.cs" />
+    <Compile Include="ViewControllers\Organization\OrganizationPageViewController.designer.cs">
+      <DependentUpon>OrganizationPageViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Organization\OrganizationSubmenuViewController.cs" />
+    <Compile Include="TableViewSources\OrganizationSubmenuTableViewSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -169,6 +194,11 @@
     <Folder Include="Services\" />
     <Folder Include="ViewControllers\Events\" />
     <Folder Include="Resources\ViewControllers\Events\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewControllers\Organization\" />
+    <Folder Include="CollectionViewSources\" />
+    <Folder Include="Resources\ViewControllers\Organization\" />
+    <Folder Include="Resources\Content\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sdwebimage">
@@ -195,5 +225,15 @@
     <BundleResource Include="Resources\Dense-Regular.otf" />
     <BundleResource Include="Resources\Muli-Regular.ttf" />
     <BundleResource Include="Resources\Lato-Regular.ttf" />
+    <BundleResource Include="Resources\logo%403x.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\BookIcon.png" />
+    <BundleResource Include="Resources\BookIcon%402x.png" />
+    <BundleResource Include="Resources\BookIcon%403x.png" />
+    <BundleResource Include="Resources\PartyIcon.png" />
+    <BundleResource Include="Resources\PartyIcon%402x.png" />
+    <BundleResource Include="Resources\PartyIcon%403x.png" />
+    <BundleResource Include="Resources\Content\PartiTuzugu.md" />
   </ItemGroup>
 </Project>

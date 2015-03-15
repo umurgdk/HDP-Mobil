@@ -52,6 +52,12 @@
     <Compile Include="ViewModels\Events\EventsViewModel.cs" />
     <Compile Include="ViewModels\Events\EventItemViewModel.cs" />
     <Compile Include="ViewModels\Events\EventViewModel.cs" />
+    <Compile Include="Models\OrganizationMenuItem.cs" />
+    <Compile Include="ViewModels\Organization\OrganizationMenuViewModel.cs" />
+    <Compile Include="ViewModels\Organization\OrganizationMenuItemViewModel.cs" />
+    <Compile Include="Models\OrganizationPage.cs" />
+    <Compile Include="ViewModels\Organization\OrganizationPageViewModel.cs" />
+    <Compile Include="ViewModels\Organization\OrganizationSubMenuItemViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -84,5 +90,6 @@
     <Folder Include="ViewModels\News\" />
     <Folder Include="Extensions\" />
     <Folder Include="ViewModels\Events\" />
+    <Folder Include="ViewModels\Organization\" />
   </ItemGroup>
 </Project>

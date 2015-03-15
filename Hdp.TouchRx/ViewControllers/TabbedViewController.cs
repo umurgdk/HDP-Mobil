@@ -6,6 +6,9 @@ using Splat;
 using Hdp.TouchRx.ViewControllers.Events;
 using Hdp.CoreRx.ViewModels.Events;
 using CoreGraphics;
+using Foundation;
+using Hdp.TouchRx.ViewControllers.Organization;
+using Hdp.CoreRx.ViewModels.Organization;
 
 namespace Hdp.TouchRx.ViewControllers
 {
@@ -18,10 +21,12 @@ namespace Hdp.TouchRx.ViewControllers
 
             var newsViewModel = new NewsViewModel ();
             var eventsViewModel = new EventsViewModel ();
+            var organizationMenuViewModel = new OrganizationMenuViewModel ();
 
             ViewControllers = new UIViewController[] {
                 new NewsViewController() { ViewModel = newsViewModel },
-                new EventsViewController() { ViewModel = eventsViewModel }
+                new EventsViewController() { ViewModel = eventsViewModel },
+                new OrganizationsMenuCollectionViewController() { ViewModel = organizationMenuViewModel }
             };
         }
 
@@ -35,7 +40,13 @@ namespace Hdp.TouchRx.ViewControllers
         public override void DidMoveToParentViewController (UIViewController parent)
         {
             base.DidMoveToParentViewController (parent);
+
             NavigationController.NavigationBar.Translucent = false;
+
+            NSArray contents = NSBundle.MainBundle.LoadNib ("TitleView", null, null);
+            var view = contents.GetItem<UIView> (contents.Count - 1);
+
+            NavigationItem.TitleView = view;
         }
     }
 }

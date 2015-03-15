@@ -84,6 +84,9 @@ namespace Hdp.TouchRx.ViewControllers.News
 
             imageHeight = this.imageView.Frame.Height;
 
+            var topItem = NavigationController.NavigationBar.TopItem;
+            topItem.Title = "Haberler";
+
             titleLabel.LineBreakMode = UILineBreakMode.WordWrap;
             bodyLabel.LineBreakMode = UILineBreakMode.WordWrap;
 
