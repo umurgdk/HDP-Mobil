@@ -48,6 +48,8 @@ namespace Hdp.TouchRx.ViewControllers.Events
                 .Subscribe (x => {
                     eventTitleLabel.Text = x.EventTitle;
                     dateLabel.Text = x.DateText;
+                    timeLabel.Text = x.TimeText;
+                    placeLabel.Text = x.Location;
                     SetNeedsLayout();
                     LayoutIfNeeded();
                 });

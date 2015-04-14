@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="253" id="cxk-wN-pdQ" customClass="ElectionArticleTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="261"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XGH-H6-9bp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="155" id="eAe-lb-XGf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tns-ET-lUg">
+                        <rect key="frame" x="16" y="193" width="288" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="ahJ-y7-rbN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Ocak 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NN2-zq-cgh">
+                        <rect key="frame" x="16" y="164" width="288" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="C0R-Y9-wtJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Thb-dH-hvK">
+                        <rect key="frame" x="128" y="47" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="114-mI-7v9"/>
+                            <constraint firstAttribute="height" constant="64" id="WA8-X1-rfl"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Thb-dH-hvK" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="47" id="3ad-iF-hpl"/>
+                    <constraint firstItem="Tns-ET-lUg" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="5SS-xc-xrS"/>
+                    <constraint firstAttribute="bottom" secondItem="Tns-ET-lUg" secondAttribute="bottom" constant="25" id="7J2-pi-QAk"/>
+                    <constraint firstAttribute="centerX" secondItem="Thb-dH-hvK" secondAttribute="centerX" id="NGh-KJ-2sF"/>
+                    <constraint firstAttribute="trailing" secondItem="NN2-zq-cgh" secondAttribute="trailing" constant="16" id="NdQ-gK-TJE"/>
+                    <constraint firstItem="XGH-H6-9bp" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="P7M-3k-Nmt"/>
+                    <constraint firstItem="XGH-H6-9bp" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="SCL-Ga-yGn"/>
+                    <constraint firstItem="Tns-ET-lUg" firstAttribute="top" secondItem="NN2-zq-cgh" secondAttribute="bottom" constant="8" id="WNF-IL-dod"/>
+                    <constraint firstAttribute="trailing" secondItem="Tns-ET-lUg" secondAttribute="trailing" constant="16" id="XlE-Al-OPg"/>
+                    <constraint firstItem="NN2-zq-cgh" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="16" id="ZAe-xw-vie"/>
+                    <constraint firstAttribute="trailing" secondItem="XGH-H6-9bp" secondAttribute="trailing" id="oAZ-le-CAZ"/>
+                    <constraint firstItem="NN2-zq-cgh" firstAttribute="top" secondItem="XGH-H6-9bp" secondAttribute="bottom" constant="9" id="puP-Fn-xEY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="articleDateLabel" destination="NN2-zq-cgh" id="Qps-3I-yf8"/>
+                <outlet property="articleImage" destination="XGH-H6-9bp" id="YZk-r8-3PN"/>
+                <outlet property="articleSummaryLabel" destination="Tns-ET-lUg" id="sD2-6L-J3j"/>
+                <outlet property="playIcon" destination="Thb-dH-hvK" id="qDN-t8-O31"/>
+            </connections>
+            <point key="canvasLocation" x="304" y="326.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="PlayIcon.png" width="64" height="64"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

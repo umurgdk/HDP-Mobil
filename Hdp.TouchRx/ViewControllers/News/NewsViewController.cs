@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using ReactiveUI;
 using UIKit;
 
@@ -13,6 +14,12 @@ namespace Hdp.TouchRx.ViewControllers
             : this(UITableViewStyle.Plain)
         {
             TabBarItem.Image = new UIImage ("NewsIcon");
+
+            this.WhenAnyValue (x => x.ViewModel)
+                .Where (x => x != null)
+                .Subscribe (x => {
+                    ViewModel.LoadCommand.Execute (null); 
+                });
         }
 
         public NewsViewController (UIKit.UITableViewStyle withStyle) : base (withStyle)

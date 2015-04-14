@@ -44,7 +44,6 @@ namespace Hdp.TouchRx.Views.News
                     categoryLabel.Text = x.Model.Category;
                     ImageUrl = x.Model.ImageUrl;
                 });
-
         }
 
         private ArticleItemViewModel _viewModel;

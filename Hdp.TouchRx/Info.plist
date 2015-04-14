@@ -38,5 +38,7 @@
 		<string>Muli-Regular.ttf</string>
 		<string>Lato-Regular.ttf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Yakininizdaki burolari gormek icin konum bilginizi paylasabilirsiniz.</string>
 </dict>
 </plist>

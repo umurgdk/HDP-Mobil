@@ -9,21 +9,29 @@ using CoreGraphics;
 using Foundation;
 using Hdp.TouchRx.ViewControllers.Organization;
 using Hdp.CoreRx.ViewModels.Organization;
+using Hdp.CoreRx.Services;
+using Hdp.CoreRx.ViewModels.ElectionArticles;
+using Hdp.TouchRx.ViewControllers.ElectionArticles;
 
 namespace Hdp.TouchRx.ViewControllers
 {
     public class TabbedViewController : BaseTabbedViewController<TabsViewModel>
     {
+        IServiceConstructor _serviceConstructor;
 
         public TabbedViewController ()
         {
+            _serviceConstructor = Locator.Current.GetService<IServiceConstructor>();
+
             Title = "HDP";
 
-            var newsViewModel = new NewsViewModel ();
-            var eventsViewModel = new EventsViewModel ();
+            var newsViewModel = _serviceConstructor.Construct<NewsViewModel>();
+            var eventsViewModel = _serviceConstructor.Construct<EventsViewModel> ();
+            var electionArticlesViewModel = _serviceConstructor.Construct<ElectionArticlesViewModel> ();
             var organizationMenuViewModel = new OrganizationMenuViewModel ();
 
             ViewControllers = new UIViewController[] {
+                new ElectionArticlesViewController() { ViewModel = electionArticlesViewModel },
                 new NewsViewController() { ViewModel = newsViewModel },
                 new EventsViewController() { ViewModel = eventsViewModel },
                 new OrganizationsMenuCollectionViewController() { ViewModel = organizationMenuViewModel }

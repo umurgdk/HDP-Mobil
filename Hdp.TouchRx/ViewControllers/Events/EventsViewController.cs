@@ -3,6 +3,8 @@ using Hdp.CoreRx.ViewModels.Events;
 using UIKit;
 using Hdp.TouchRx.TableViewSources;
 using Foundation;
+using ReactiveUI;
+using System.Reactive.Linq;
 
 namespace Hdp.TouchRx.ViewControllers.Events
 {
@@ -12,6 +14,12 @@ namespace Hdp.TouchRx.ViewControllers.Events
             : this(UITableViewStyle.Plain)
         {
             TabBarItem.Image = new UIImage ("CalendarIcon");
+
+            this.WhenAnyValue (x => x.ViewModel)
+                .Where (x => x != null)
+                .Subscribe (x => {
+                    ViewModel.LoadCommand.Execute (null); 
+                });
         }
 
         public EventsViewController (UIKit.UITableViewStyle withStyle) : base (withStyle)

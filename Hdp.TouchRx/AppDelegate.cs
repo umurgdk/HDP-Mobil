@@ -9,6 +9,7 @@ using Splat;
 using Hdp.CoreRx.Services;
 using Hdp.CoreRx.ViewModels;
 using Hdp.TouchRx.Services;
+using Hdp.CoreRx;
 
 namespace Hdp.TouchRx
 {
@@ -40,11 +41,23 @@ namespace Hdp.TouchRx
             var viewModelViews = Locator.Current.GetService<IViewModelViewService> ();
             viewModelViews.RegisterViewModels (typeof(NewsViewController).Assembly);
 
-            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
-            var vm = serviceConstructor.Construct<TabsViewModel> ();
-            var tabbedViewController = new TabbedViewController {
+            DeviceType deviceType;
+            nfloat scale = UIScreen.MainScreen.Scale;
 
-            };
+            if (scale == 1.0)
+            {
+                deviceType = DeviceType.ios;
+            } 
+            else if (scale == 2.0)
+            {
+                deviceType = DeviceType.ios2x;
+            }
+            else
+            {
+                deviceType = DeviceType.ios3x;
+            }
+
+            var hdpApp = new HDPApp(deviceType);
 
             window.RootViewController = new UINavigationController (new TabbedViewController());
             // make the window visible

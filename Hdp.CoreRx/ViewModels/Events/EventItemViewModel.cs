@@ -19,8 +19,8 @@ namespace Hdp.CoreRx.ViewModels.Events
 
             Title = model.Title;
             EventTitle = model.Title;
-            Date = model.Date;
-            Place = model.Place;
+            Time = model.Time;
+            Location = model.Location;
 
             GoToCommand = ReactiveCommand.Create ();
             GoToCommand.Subscribe (x => gotoCommand (this));

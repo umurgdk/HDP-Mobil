@@ -15,12 +15,10 @@ namespace Hdp.TouchRx.ViewControllers.News
 {
     public partial class ArticleViewController : BaseViewController<ArticleViewModel>
     {
-        nfloat imageHeight;
-
         UIScrollView scrollView;
         UIImageView imageView;
         UILabel titleLabel;
-        UILabel bodyLabel;
+        ArticleWebView bodyView;
 
         public ArticleViewController ()
             : base()
@@ -31,8 +29,8 @@ namespace Hdp.TouchRx.ViewControllers.News
             titleLabel = new UILabel ();
             titleLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
-            bodyLabel = new UILabel ();
-            bodyLabel.TranslatesAutoresizingMaskIntoConstraints = false;
+            bodyView = new ArticleWebView ();
+            bodyView.TranslatesAutoresizingMaskIntoConstraints = false;
 
             scrollView = new UIScrollView ();
         }
@@ -41,20 +39,18 @@ namespace Hdp.TouchRx.ViewControllers.News
         {
             View.BackgroundColor = UIColor.White;
 
-            imageView.ContentMode = UIViewContentMode.ScaleAspectFit;
+            imageView.ContentMode = UIViewContentMode.ScaleAspectFill;
 
             titleLabel.Font = UIFont.PreferredHeadline;
             titleLabel.LineBreakMode = UILineBreakMode.WordWrap;
             titleLabel.Lines = 0;
 
-            bodyLabel.Font = UIFont.PreferredBody;
-            bodyLabel.LineBreakMode = UILineBreakMode.WordWrap;
-            bodyLabel.Lines = 0;
+            bodyView.LoadFinished += WebViewDidLoad;
 
             scrollView.ScrollEnabled = true;
             scrollView.AlwaysBounceVertical = true;
             scrollView.Frame = View.Frame;
-            scrollView.AddSubviews (imageView, titleLabel, bodyLabel);
+            scrollView.AddSubviews (imageView, titleLabel, bodyView);
 
             View.AddSubview (scrollView);
         }
@@ -69,10 +65,21 @@ namespace Hdp.TouchRx.ViewControllers.News
             View.AddConstraint (NSLayoutConstraint.Create (titleLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, imageView, NSLayoutAttribute.Bottom, 1.0f, 16.0f));
             View.AddConstraint (NSLayoutConstraint.Create (titleLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, View, NSLayoutAttribute.LeftMargin, 1.0f, 0.0f));
             View.AddConstraint (NSLayoutConstraint.Create (titleLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, View, NSLayoutAttribute.RightMargin, 1.0f, 0.0f));
+        }
 
-            View.AddConstraint (NSLayoutConstraint.Create (bodyLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, titleLabel, NSLayoutAttribute.Bottom, 1.0f, 16.0f));
-            View.AddConstraint (NSLayoutConstraint.Create (bodyLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, View, NSLayoutAttribute.LeftMargin, 1.0f, 0.0f));
-            View.AddConstraint (NSLayoutConstraint.Create (bodyLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, View, NSLayoutAttribute.RightMargin, 1.0f, 0.0f));
+        private void WebViewDidLoad (object sender, EventArgs e)
+        {
+            var frame = bodyView.Frame;
+            frame.Width = View.Bounds.Width - 32.0f;
+            frame.Height = 1;
+            bodyView.Frame = frame;
+            CGSize fittingSize = bodyView.SizeThatFits (new CGSize (0, 0));
+            frame.X = 16.0f;
+            frame.Y = titleLabel.Frame.Bottom + 16.0f;
+            frame.Size = fittingSize;
+            bodyView.Frame = frame;
+
+            UpdateScroll ();
         }
 
         public override void ViewDidLoad ()
@@ -82,33 +89,24 @@ namespace Hdp.TouchRx.ViewControllers.News
             BuildUI ();
             BuildConstraints ();
 
-            imageHeight = this.imageView.Frame.Height;
-
             var topItem = NavigationController.NavigationBar.TopItem;
             topItem.Title = "Haberler";
 
             titleLabel.LineBreakMode = UILineBreakMode.WordWrap;
-            bodyLabel.LineBreakMode = UILineBreakMode.WordWrap;
 
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)
                 .Subscribe (x => {
                     this.imageView.SetImage(new NSUrl(x.ImageUrl), null, SDWebImageOptions.ProgressiveDownload);
                     this.titleLabel.Text = x.ArticleTitle;
-                    this.bodyLabel.Text = x.Body;
+                    this.bodyView.LoadHtmlString (x.Body, new NSUrl("http://localhost:3000/"));
                     this.Title = x.ArticleTitle;
                 });
         }
 
-        public override void ViewDidAppear (bool animated)
-        {
-            base.ViewWillAppear (animated);
-            UpdateScroll ();
-        }
-
         private void UpdateScroll ()
         {
-            scrollView.ContentSize = new CGSize(View.Bounds.Width, bodyLabel.Frame.Bottom + 16.0f);
+            scrollView.ContentSize = new CGSize(View.Bounds.Width, bodyView.Frame.Bottom + 86.0f);
         }
     }
 }

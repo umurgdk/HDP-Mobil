@@ -2,6 +2,12 @@
 using ReactiveUI;
 using Hdp.CoreRx.Models;
 using System.Threading.Tasks;
+using Hdp.CoreRx.Services;
+using Fusillade;
+using System.Collections.Generic;
+using System.Reactive;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Hdp.CoreRx.ViewModels
 {
@@ -9,11 +15,17 @@ namespace Hdp.CoreRx.ViewModels
     {
         public ReactiveList<Models.Article> Articles { get; protected set; } = new ReactiveList<Models.Article>();
 
-        public IReactiveDerivedList<ArticleItemViewModel> ArticleItems;
-        public IReactiveDerivedList<ArticleItemViewModel> VisibleArticles;
+        public IReactiveDerivedList<ArticleItemViewModel> ArticleItems { get; protected set; }
+        public IReactiveDerivedList<ArticleItemViewModel> VisibleArticles { get; protected set; }
 
-        public NewsViewModel ()
+        private readonly INewsService _newsService;
+
+        public IReactiveCommand<List<Article>> LoadCommand { get; private set; }
+
+        public NewsViewModel (INewsService newsService)
         {
+            _newsService = newsService;
+
             Title = "Haberler";
 
             var gotoArticle = new Action<ArticleItemViewModel> (x => {
@@ -34,9 +46,14 @@ namespace Hdp.CoreRx.ViewModels
                 x => x,
                 x => !x.IsHidden);
 
-            for (int i = 0; i < 20; i++) {
-                Articles.Add (Article.Create ("Article " + i.ToString ()));
-            }
+            LoadCommand = ReactiveCommand.CreateAsyncTask (async _ => {
+                return await _newsService.GetArticles (Priority.Background).ConfigureAwait (false);
+            });
+
+            LoadCommand.Subscribe (articles => {
+                Articles.Reset();
+                Articles.AddRange(articles);
+            });
         }
     }
 }

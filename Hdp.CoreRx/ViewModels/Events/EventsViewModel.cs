@@ -1,6 +1,9 @@
 ﻿using System;
 using ReactiveUI;
 using Hdp.CoreRx.Models;
+using Hdp.CoreRx.Services;
+using System.Collections.Generic;
+using Fusillade;
 
 namespace Hdp.CoreRx.ViewModels.Events
 {
@@ -9,58 +12,37 @@ namespace Hdp.CoreRx.ViewModels.Events
         public ReactiveList<Event> Events { get; protected set; } = new ReactiveList<Event>();
         public IReactiveDerivedList<EventItemViewModel> EventItems;
 
-        public EventsViewModel ()
+        private readonly IEventsService _eventsService;
+
+        public IReactiveCommand<List<Event>> LoadCommand;
+
+        public EventsViewModel (IEventsService eventsService)
         {
+            _eventsService = eventsService;
+
             Title = "Etkinlikler";
 
             var gotoCommand = new Action<EventItemViewModel> (x => {
                 var vm = this.CreateViewModel<EventViewModel>();
                 vm.EventTitle = x.Model.Title;
-                vm.Date = x.Model.Date;
-                vm.Place = x.Model.Place;
+                vm.Time = x.Model.Time;
+                vm.Location = x.Model.Location;
                 
                 NavigateTo(vm);
             });
 
             EventItems = Events.CreateDerivedCollection (
                 x => new EventItemViewModel(x, gotoCommand),
-                orderer: (x, y) => y.Model.Date.CompareTo(x.Model.Date));
+                orderer: (x, y) => y.Model.Time.CompareTo(x.Model.Time));
 
-//            for (int i = 0; i < 20; i++) {
-//                Articles.Add (Article.Create ("Article " + i.ToString ()));
-//            }
-
-            Events.Add(new Event {
-                Title = "Antalya Il Kongresi",
-                Date = new DateTime(2015, 1, 7),
-                Place = "Antalya"
+            LoadCommand = ReactiveCommand.CreateAsyncTask (async _ => {
+                return await _eventsService.GetEvents(Priority.UserInitiated);
             });
 
-            Events.Add(new Event {
-                Title = "Istanbul Il Kongresi",
-                Date = new DateTime(2015, 1, 4),
-                Place = "Istanbul"
+            LoadCommand.Subscribe (events => {
+                Events.Reset();
+                Events.AddRange(events);
             });
-
-            Events.Add(new Event {
-                Title = "Kocaeli Il Kongresi",
-                Date = new DateTime(2015, 1, 10),
-                Place = "Kocaeli"
-            });
-
-            Events.Add (new Event {
-                Title = "HDP Eşbaşkanı Ertuğrul Kürkçü, yolsuzlukla ilgili basın toplantısı düzenleyecek",
-                Date = new DateTime(2014, 2, 26),
-                Place = "HDP Ankara Il Binasi"
-            });
-
-            for (int i = 1; i < 30; i++) {
-                Events.Add(new Event {
-                    Title = "Kocaeli Il Kongresi",
-                    Date = new DateTime(2013, 1, i),
-                    Place = "Kocaeli"
-                });
-            }
         }
     }
 }
