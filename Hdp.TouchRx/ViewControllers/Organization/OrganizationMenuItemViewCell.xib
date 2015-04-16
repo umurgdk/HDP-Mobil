@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Dense-Regular.otf">
-            <string>Dense-Regular</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cZE-iV-UFb" customClass="OrganizationMenuItemViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="129"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="160" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="160" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0mb-Ck-f7A">
-                        <rect key="frame" x="30" y="10" width="100" height="100"/>
+                        <rect key="frame" x="30" y="-5" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="ETN-9S-NJt"/>
                             <constraint firstAttribute="width" constant="100" id="SXx-5O-AA1"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parti Tuzugu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuz-dV-5f5">
-                        <rect key="frame" x="8" y="103" width="144" height="24"/>
-                        <fontDescription key="fontDescription" name="Dense-Regular" family="Dense" pointSize="24"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Parti Tüzüğü" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuz-dV-5f5">
+                        <rect key="frame" x="16" y="88" width="128" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="VHa-o3-jaf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -36,16 +34,17 @@
             </view>
             <constraints>
                 <constraint firstItem="Zuz-dV-5f5" firstAttribute="top" secondItem="0mb-Ck-f7A" secondAttribute="bottom" constant="-7" id="3Bo-Ls-kdN"/>
-                <constraint firstAttribute="trailing" secondItem="Zuz-dV-5f5" secondAttribute="trailing" constant="8" id="KLT-E4-LBz"/>
-                <constraint firstItem="Zuz-dV-5f5" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="8" id="Nxf-t4-yX5"/>
+                <constraint firstAttribute="trailing" secondItem="Zuz-dV-5f5" secondAttribute="trailing" constant="16" id="KLT-E4-LBz"/>
+                <constraint firstItem="Zuz-dV-5f5" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="16" id="Nxf-t4-yX5"/>
                 <constraint firstAttribute="centerX" secondItem="0mb-Ck-f7A" secondAttribute="centerX" id="cEE-Ay-N1B"/>
-                <constraint firstItem="0mb-Ck-f7A" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="10" id="cyU-bC-Xe4"/>
-                <constraint firstAttribute="bottom" secondItem="Zuz-dV-5f5" secondAttribute="bottom" constant="23" id="vx2-cf-ykH"/>
+                <constraint firstItem="0mb-Ck-f7A" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="-5" id="cyU-bC-Xe4"/>
             </constraints>
+            <size key="customSize" width="160" height="129"/>
             <connections>
                 <outlet property="iconView" destination="0mb-Ck-f7A" id="VJc-Re-D7R"/>
                 <outlet property="nameLabel" destination="Zuz-dV-5f5" id="aog-Je-vPB"/>
             </connections>
+            <point key="canvasLocation" x="299" y="396.5"/>
         </collectionViewCell>
     </objects>
     <resources>
