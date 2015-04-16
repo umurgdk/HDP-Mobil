@@ -5,11 +5,11 @@ namespace Hdp.CoreRx.ViewModels.Organization
 {
     public class OrganizationPageViewModel : BaseViewModel
     {
-        private string body;
+        private string _document;
 
-        public string Body {
-            get { return this.body; }
-            set { this.RaiseAndSetIfChanged (ref this.body, value); }
+        public string Document {
+            get { return this._document; }
+            set { this.RaiseAndSetIfChanged (ref this._document, value); }
         }
     }
 }
