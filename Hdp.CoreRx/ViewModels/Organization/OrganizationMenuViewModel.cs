@@ -16,13 +16,12 @@ namespace Hdp.CoreRx.ViewModels.Organization
 
             Action<OrganizationMenuItemViewModel> gotoCommand = null;
             gotoCommand = new Action<OrganizationMenuItemViewModel> (x => {
-                // TODO: Implement organization menu item gotoCommand
                 if (x.Model.MenuType == MenuType.View) {
                     var page = x.Model.Page;
 
                     var vm = new OrganizationPageViewModel();
                     vm.Title = page.Title;
-                    vm.Body = page.Body;
+                    vm.Document = page.Document;
 
                     NavigateTo(vm);
                 }
@@ -39,71 +38,82 @@ namespace Hdp.CoreRx.ViewModels.Organization
                 x => new OrganizationMenuItemViewModel (x, gotoCommand));
 
             Organizations.Add (new OrganizationMenuItem {
-                Name = "Parti Tuzugu",
+                Name = "Parti Tüzüğü",
                 Order = 0,
                 MenuType = MenuType.View,
                 Page = new OrganizationPage {
-                    Title = "Parti Tuzugu",
-                    Body = "Lorem ipsum..."
+                    Title = "Parti Tüzüğü",
+                    Document = "PartiTuzugu.md"
                 }
             });
 
             Organizations.Add (new OrganizationMenuItem {
-                Name = "Parti Programi",
-                Order = 1
+                Name = "Parti Programı",
+                Order = 1,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Parti Programı",
+                    Document = "PartiProgrami.md"
+                }
             });
 
             Organizations.Add (new OrganizationMenuItem {
-                Name = "Temel Metinler",
-                Order = 2
+                Name = "Eş Başkanlar",
+                Order = 2,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Eş Başkanlar",
+                    Document = "EsBaskanlar.md"
+                }
             });
 
             Organizations.Add (new OrganizationMenuItem {
-                Name = "Komisyonlar",
-                Order = 3
+                Name = "Merkez Yürütme Kurulu",
+                Order = 3,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Merkez Yürütme Kurulu",
+                    Document = "MerkezYurutmeKurulu.md"
+                }
             });
 
             Organizations.Add (new OrganizationMenuItem {
-                Name = "Meclisler",
-                Order = 4
-            });
-
-            Organizations.Add (new OrganizationMenuItem {
-                Name = "Yurutme",
+                Name = "Parti Meclisi",
                 Order = 5,
-                MenuType = MenuType.SubMenu,
-                SubMenuItems = new List<OrganizationMenuItem> {
-                    new OrganizationMenuItem {
-                        Name = "Esbaskanlar",
-                        Order = 0,
-                        MenuType = MenuType.SubMenu,
-                        SubMenuItems = new List<OrganizationMenuItem> {
-                            new OrganizationMenuItem {
-                                Name = "Wohoooo!"
-                            }
-                        }
-                    },
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Parti Meclisi",
+                    Document = "PartiMeclisi.md"
+                }
+            });
 
-                    new OrganizationMenuItem {
-                        Name = "Merkez Yurutme Kurulu",
-                        Order = 1,
-                        MenuType = MenuType.View,
-                        Page = new OrganizationPage { Title = "Merkez Yurutme Kurulu", Body = "Merkez Yurutme Kurulu icerik" }
-                    },
+            Organizations.Add (new OrganizationMenuItem {
+                Name = "Danışma Kurulu",
+                Order = 6,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Danışma Kurulu",
+                    Document = "DanismaKurulu.md"
+                }
+            });
 
-                    new OrganizationMenuItem {
-                        Name = "Parti Meclisi",
-                        Order = 2,
-                        MenuType = MenuType.View,
-                        Page = new OrganizationPage { Title = "Parti Meclisi", Body = "Parti Meclisi icerik" }
-                    },
+            Organizations.Add (new OrganizationMenuItem {
+                Name = "Uzlaştırma Kurulu",
+                Order = 7,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Uzlaştırma Kurulu",
+                    Document = "UzlastirmaKurulu.md"
+                }
+            });
 
-                    new OrganizationMenuItem {
-                        Name = "Danisma Kurulu",
-                        Order = 3,
-                        MenuType = MenuType.View,
-                        Page = new OrganizationPage { Title = "Danisma Kurulu", Body = "Danisma Kurulu icerik" }
-                    },
+            Organizations.Add (new OrganizationMenuItem {
+                Name = "Kurucular",
+                Order = 8,
+                MenuType = MenuType.View,
+                Page = new OrganizationPage {
+                    Title = "Kurucular",
+                    Document = "Kurucular.md"
                 }
             });
         }
