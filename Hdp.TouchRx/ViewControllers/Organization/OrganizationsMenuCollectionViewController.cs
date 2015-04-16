@@ -21,7 +21,7 @@ namespace Hdp.TouchRx.ViewControllers.Organization
         private static UICollectionViewLayout DefaultLayout ()
         {
             var layout = new UICollectionViewFlowLayout () {
-                ItemSize = new CGSize(160, 150),
+                ItemSize = new CGSize(160, 129),
                 MinimumInteritemSpacing = 0.0f,
                 MinimumLineSpacing = 0.0f,
                 ScrollDirection = UICollectionViewScrollDirection.Vertical
