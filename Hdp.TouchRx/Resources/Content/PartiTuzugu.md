@@ -1,6 +1,4 @@
-# Parti Tüzüğü
-
-HALKLARIN DEMOKRATİK PARTİSİ TÜZÜĞÜ
+## HALKLARIN DEMOKRATİK PARTİSİ TÜZÜĞÜ
 
 (22 Haziran 2014 2. Olağanüstü Kongre’de kabul edilmiş son hali)
 
@@ -8,13 +6,13 @@ HALKLARIN DEMOKRATİK PARTİSİ TÜZÜĞÜ
 
 
 
-## PARTİNİN ADI VE TANIMI
+### PARTİNİN ADI VE TANIMI
 
-### Madde 1
+**Madde 1**
 
 
 
-**Parti’nin adı:** Halkların Demokratik Partisi
+Parti’nin adı: Halkların Demokratik Partisi
 
 Parti’nin kısa adı: HDP
 
@@ -30,9 +28,9 @@ Parti, tüm ezilenlerin ve sömürülenlerin; dışlanan ve yok sayılan bütün
 
 
 
-AMAÇ
+### AMAÇ
 
-Madde 2
+**Madde 2**
 
 
 
@@ -71,9 +69,9 @@ n)      Kapitalizmin doğayı, doğal varlıkları ve yaşamı metalaştırarak 
 o)      Yurtdışında göçmen ve mülteciler arasında eşit sosyal ve siyasal haklar talebi temelinde mücadeleyi geliştirmeyi, ırkçı ve ayrımcı politikalara karşı mücadele örgütlemeyi, göçmen ve mültecilerin bulundukları ülkelerdeki işçi ve emekçilerle ortak mücadeleyi hayata geçirmeyi; yurtdışındaki güçlerini meclisler temelinde ve kendi özgün örgütlenme yöntemlerini geliştirme yönünde seferber etmeyi amaçlar.
 
 
-ÖRGÜTLENME İLKELERİ VE İÇ İŞLEYİŞ
+### ÖRGÜTLENME İLKELERİ VE İÇ İŞLEYİŞ
 
-Madde 3
+**Madde 3**
 
 
 
@@ -103,9 +101,9 @@ j) Karar almada öncelikle konsensüs aranır, olmadığı durumlarda oy çoklu�
 
 
 
-ÜYELİK
+### ÜYELİK
 
-Madde 4
+**Madde 4**
 
 
 
@@ -125,9 +123,9 @@ b) Tek dereceli seçimle oluşturulan organlara ve Disiplin Kurulu’na fahri ü
 
 
 
-ÜYELİK ÖDENTİSİ
+### ÜYELİK ÖDENTİSİ
 
-Madde 6
+**Madde 6**
 
 
 
@@ -135,9 +133,9 @@ Parti üyelerinin ödeyeceği aylık ödentinin alt sınırı 5 TL, üst sınır
 
 
 
-ÜYE OLMAK
+### ÜYE OLMAK
 
-Madde 7
+**Madde 7**
 
 
 
@@ -157,9 +155,9 @@ Parti üyeleri, partinin birden fazla örgüt birimine üye kaydolamaz, aksi hal
 
 
 
-ÜYELERİN HAKLARI
+### ÜYELERİN HAKLARI
 
-Madde 8
+**Madde 8**
 
 
 
@@ -175,9 +173,9 @@ Madde 8
 
 
 
-ÜYELİKTEN ÇIKMA
+### ÜYELİKTEN ÇIKMA
 
-Madde 9
+**Madde 9**
 
 
 
@@ -185,9 +183,9 @@ Parti gönüllü bir birliktir ve her üye dilediğinde üyelikten istifa etme h
 
 
 
-ÖRGÜTÜN YAPISI
+### ÖRGÜTÜN YAPISI
 
-Madde 10
+**Madde 10**
 
 
 
@@ -195,9 +193,9 @@ Parti Örgütü; merkez organları, il örgütü, ilçe örgütü, belde örgüt
 
 
 
-DANIŞMA TOPLANTILARI
+### DANIŞMA TOPLANTILARI
 
-Madde 11
+**Madde 11**
 
 
 
@@ -211,9 +209,9 @@ Parti Danışma toplantılarına katılım esasları ve çalışma şekli çıka
 
 
 
-MERKEZ ORGANLARI
+### MERKEZ ORGANLARI
 
-Madde 12
+**Madde 12**
 
 
 
@@ -237,9 +235,9 @@ h) Gençlik Meclisi
 
 
 
-İL, İLÇE VE BELDE ÖRGÜTLERİ, YURTDIŞI TEMSİLCİLİKLERİ, KADIN MECLİSİ VE GENÇLİK MECLİSİ
+### İL, İLÇE VE BELDE ÖRGÜTLERİ, YURTDIŞI TEMSİLCİLİKLERİ, KADIN MECLİSİ VE GENÇLİK MECLİSİ
 
-Madde 13
+**Madde 13**
 
 
 
@@ -261,11 +259,11 @@ g)Yurtdışı Temsilcilikleri
 
 
 
-PARTİ GRUPLARI
+### PARTİ GRUPLARI
 
 
 
-Madde 14
+**Madde 14**
 
 
 
@@ -281,9 +279,9 @@ e) Belediye Meclisleri Parti Grupları
 
 
 
-GENEL KONGRE
+### GENEL KONGRE
 
-Madde 15
+**Madde 15**
 
 
 
@@ -329,9 +327,9 @@ Kongre, dünya, ülke ve Parti’yi ilgilendiren tüm konuları tartışır ve P
 
 
 
-EŞ GENEL BAŞKANLAR
+### EŞ GENEL BAŞKANLAR
 
-Madde 16
+**Madde 16**
 
 
 
@@ -357,9 +355,9 @@ Eş Genel Başkanlardan birinin ya da ikisinin herhangi bir nedenle görevinden 
 
 
 
-PARTİ MECLİSİ
+### PARTİ MECLİSİ
 
-Madde 17
+**Madde 17**
 
 
 
@@ -417,9 +415,9 @@ Parti Meclisi, iki kongre arasında partinin en yetkili organıdır.
 
 
 
-MERKEZ YÜRÜTME KURULU
+### MERKEZ YÜRÜTME KURULU
 
-Madde 18
+**Madde 18**
 
 
 
@@ -443,9 +441,9 @@ Madde 18
 
 
 
-MERKEZ DİSİPLİN KURULU
+### MERKEZ DİSİPLİN KURULU
 
-Madde 19
+**Madde 19**
 
 
 
@@ -457,9 +455,9 @@ Kurul, seçiminden sonraki 15 gün içinde yapacağı ilk toplantısında Başka
 
 
 
-UZLAŞMA KURULU
+### UZLAŞMA KURULU
 
-Madde 20
+**Madde 20**
 
 
 
@@ -501,9 +499,9 @@ Bunların dışında kalan hususlar PM tarafından yapılacak yönetmelikte yer 
 
 
 
-MERKEZ DANIŞMA KURULU
+### MERKEZ DANIŞMA KURULU
 
-Madde 21
+**Madde 21**
 
 
 
@@ -513,9 +511,9 @@ Merkez Yürütme Kurulu tarafından oluşturulur. Katılımcı sayısı ve bile�
 
 
 
-İL ÖRGÜTÜ
+### İL ÖRGÜTÜ
 
-Madde 22
+**Madde 22**
 
 
 
@@ -523,9 +521,9 @@ Madde 22
 
 
 
-İL KONGRESİ
+### İL KONGRESİ
 
-Madde 23
+**Madde 23**
 
 
 
@@ -561,9 +559,9 @@ Olağanüstü İl Kongresi, PM veya İYK kararıyla veya il delegelerinin beşte
 
 
 
-İL YÖNETİM KURULU
+### İL YÖNETİM KURULU
 
-Madde 24
+**Madde 24**
 
 
 
@@ -579,9 +577,9 @@ Herhangi bir nedenle boşalan üyelerin yerleri oy sırasına göre yedeklerle d
 
 
 
-İL DİSİPLİN KURULU
+### İL DİSİPLİN KURULU
 
-Madde 25
+**Madde 25**
 
 
 
@@ -589,9 +587,9 @@ Madde 25
 
 
 
-İLÇE ÖRGÜTÜ
+### İLÇE ÖRGÜTÜ
 
-Madde 26
+**Madde 26**
 
 
 
@@ -601,9 +599,9 @@ Madde 26
 
 
 
-İLÇE KONGRESİ
+### İLÇE KONGRESİ
 
-Madde 27
+**Madde 27**
 
 
 
@@ -633,9 +631,9 @@ Olağanüstü İlçe Kongresi, İlçe YK kararı ya da bir önceki İlçe Kongre
 
 
 
-İLÇE YÖNETİM KURULU
+### İLÇE YÖNETİM KURULU
 
-Madde 28
+**Madde 28**
 
 
 
@@ -655,9 +653,9 @@ Ancak üye sayısı, üye tam sayısının yarısının altına düşerse İl Y�
 
 
 
-BELDE ÖRGÜTÜ
+### BELDE ÖRGÜTÜ
 
-Madde 29
+**Madde 29**
 
 
 
@@ -665,9 +663,9 @@ Belde örgütü, İlçe Yönetim Kurulu’nca atanan 3 üyeden oluşur. Araları
 
 
 
-BÜRO, KOMİSYON VE ÇALIŞMA GRUPLARI
+### BÜRO, KOMİSYON VE ÇALIŞMA GRUPLARI
 
-Madde 30
+**Madde 30**
 
 
 
@@ -677,9 +675,9 @@ Partinin kongrelerde seçilen merkezi ve yerel bütün yönetici organları kend
 
 
 
-PARTİ TEMSİLCİLİĞİ
+### PARTİ TEMSİLCİLİĞİ
 
-Madde 31
+**Madde 31**
 
 
 
@@ -695,13 +693,13 @@ Temsilcilerin görevi, bu yerlerde Parti örgütünün oluşturulması ile ya da
 
 
 
-PARTİ GRUPLARI
+### PARTİ GRUPLARI
 
-TBMM PARTİ GRUBU
+***TBMM PARTİ GRUBU***
 
-TBMM Parti Grubu Genel Kurulu
+***TBMM Parti Grubu Genel Kurulu***
 
-Madde 32
+**Madde 32**
 
 
 
@@ -719,9 +717,9 @@ Bakanlar Kurulu ya da bir Bakan’a güven ya da güvensizlik oyu verilmesi içi
 
 
 
-GRUP EŞ GENEL BAŞKANLARI
+### GRUP EŞ GENEL BAŞKANLARI
 
-Madde 33
+**Madde 33**
 
 
 
@@ -731,9 +729,9 @@ Eş Genel Başkanlar, parti çalışmalarıyla ilgili olarak grup üyelerine gö
 
 
 
-TBMM PARTİ GRUBU YÖNETİM KURULU
+### TBMM PARTİ GRUBU YÖNETİM KURULU
 
-Madde 34
+**Madde 34**
 
 
 
@@ -753,9 +751,9 @@ Yasama girişimlerinin düzenli bir biçimde yürütülmesi ve Meclis çalışma
 
 
 
-GRUP ÜYELERİNİN GÖREV VE SORUMLULUKLARI
+### GRUP ÜYELERİNİN GÖREV VE SORUMLULUKLARI
 
-Madde 35
+**Madde 35**
 
 
 
@@ -763,9 +761,9 @@ Partili milletvekilleri, yasama çalışmalarında, Parti’nin Program, Tüzük
 
 
 
-GRUP KURULAMAYAN DURUMLAR
+***GRUP KURULAMAYAN DURUMLAR***
 
-Madde 36
+**Madde 36**
 
 
 
@@ -773,9 +771,9 @@ Parti milletvekillerinin sayısı grup kurmaya yetmiyorsa; bu milletvekilleri Pa
 
 
 
-TBMM PARTİ GRUBU DİSİPLİN KURULU
+***TBMM PARTİ GRUBU DİSİPLİN KURULU***
 
-Madde 37
+**Madde 37**
 
 
 
@@ -787,9 +785,9 @@ Grup Disiplin Kurulu’nun çalışma koşulları ve yöntemleri PM tarafından 
 
 
 
-İL GENEL MECLİSİ VE BELEDİYE MECLİSLERİ PARTİ GRUPLARI
+***İL GENEL MECLİSİ VE BELEDİYE MECLİSLERİ PARTİ GRUPLARI***
 
-Madde 38
+**Madde 38**
 
 
 
@@ -813,9 +811,9 @@ Belediye Başkanları’nın yürütme ile ilgili yasal görevleri konusunda ba�
 
 
 
-GENÇLİK MECLİSİ
+***GENÇLİK MECLİSİ***
 
-Madde 39
+**Madde 39**
 
 
 
@@ -823,9 +821,9 @@ Parti, gençlik sorunları konusunda çalışma yapmak ve gençlerin sorunların
 
 
 
-KADIN MECLİSİ
+***KADIN MECLİSİ***
 
-Madde 40
+**Madde 40**
 
 
 
@@ -833,9 +831,9 @@ Parti, üyesi olan kadınların, kadınlara özgü sorunların çözümü ve kad
 
 
 
-YURTDIŞI PARTİ TEMSİLCİLİĞİ
+***YURTDIŞI PARTİ TEMSİLCİLİĞİ***
 
-Madde 41
+**Madde 41**
 
 
 
@@ -851,9 +849,9 @@ Bu temsilciliklerin kuruluşu, işleyişi, çalışma esasları, denetimleri ve 
 
 
 
-KONFERANSLAR
+***KONFERANSLAR***
 
-Madde 42
+**Madde 42**
 
 
 
@@ -861,9 +859,9 @@ PM, MYK, il ve ilçe yönetim kurulları gerekli gördükleri hallerde parti üy
 
 
 
-GENEL HÜKÜMLER
+***GENEL HÜKÜMLER***
 
-Madde 43
+**Madde 43**
 
 
 
@@ -877,7 +875,7 @@ Atanan il ve ilçe yönetim kurulları kendi içinden parti ilkelerini dikkate a
 
 
 
-Madde 44
+**Madde 44**
 
 
 
@@ -885,7 +883,7 @@ Parti üyeleri, her göreve aday olabilir, aday gösterebilir. Parti organların
 
 
 
-Madde 45
+**Madde 45**
 
 
 
@@ -895,7 +893,7 @@ Madde 45
 
 
 
-Madde 46
+**Madde 46**
 
 
 
@@ -905,7 +903,7 @@ Parti Meclisi, Merkez Disiplin Kurulu, Uzlaşma Kurulu, İl ve İlçe Yönetim K
 
 
 
-Madde 47
+**Madde 47**
 
 
 
@@ -913,7 +911,7 @@ Parti üyeleri, TBMM, Belediye ve İl Genel Meclislerinde gruplar kurarlar. Çal
 
 
 
-Madde 48
+**Madde 48**
 
 
 
@@ -921,7 +919,7 @@ Genel ve Yerel seçimlerde aday olacak parti üyeleri, üye ya da delegelerin oy
 
 
 
-Madde 49
+**Madde 49**
 
 
 
@@ -929,7 +927,7 @@ Parti Kongreleri, gazetelerde ilan edilmeyebilir.
 
 
 
-Madde 50
+**Madde 50**
 
 
 
@@ -937,7 +935,7 @@ Madde 50
 
 
 
-Madde 51
+**Madde 51**
 
 
 
@@ -945,7 +943,7 @@ Partinin gelir-giderleri, bütçe, bilânço, gelir-gider hesabı ve kesin hesap
 
 
 
-Madde 52
+**Madde 52**
 
 
 
@@ -953,7 +951,7 @@ Parti Meclisi, il ve ilçe örgütleri ihtiyaç duymaları halinde, bulunduklar�
 
 
 
-Madde 53
+**Madde 53**
 
 
 
@@ -961,9 +959,9 @@ Parti Meclisi, Eş Genel Başkanların parti çalışmalarını rahatlıkla sür
 
 
 
-ONURSAL GENEL BAŞKAN
+***ONURSAL GENEL BAŞKAN***
 
-Madde 54
+**Madde 54**
 
 
 
@@ -973,7 +971,7 @@ Ertuğrul Kürkçü, partinin onursal genel başkanıdır. Onursal genel başkan
 
 
 
-Madde 55
+**Madde 55**
 
 
 
@@ -981,7 +979,7 @@ Parti, politikalarının yaygınlaştırılması, üyeler ile tüm halka aktarı
 
 
 
-Madde 56
+**Madde 56**
 
 
 
@@ -989,9 +987,9 @@ PM, il örgütleri, ilçe örgütleri, gençlik ve kadın meclisleri parti çal�
 
 
 
-GENEL DİSİPLİN KURALLARI
+***GENEL DİSİPLİN KURALLARI***
 
-Madde 57
+**Madde 57**
 
 
 
@@ -999,7 +997,7 @@ Disiplin kurullarında görev alanlar Parti’nin diğer organlarında görev al
 
 
 
-Disiplin Kurullarının Yetkileri
+**Disiplin Kurullarının Yetkileri**
 
 
 
@@ -1011,9 +1009,9 @@ c) Disiplin Kurulu’na başvuru ve kurulun çalışma yöntemleri disiplin yön
 
 
 
-DİSİPLİN SUÇ VE YAPTIRIMLARI
+***DİSİPLİN SUÇ VE YAPTIRIMLARI***
 
-Madde 58
+**Madde 58**
 
 
 
@@ -1041,11 +1039,11 @@ g) Kadınlara, çocuklara ve LGBTİ bireylere yönelik suçların disiplin kurul
 
 
 
-İtiraz: İDK kararlarına karşı, kararın tebliğinden sonra 10 gün içinde MDK'ya başvurulabilir. Hakkında Parti’den ya da gruptan geçici veya kesin çıkarma cezası verilen üye, Parti içi itiraz yollarını tükettikten sonra SPY'nin 57. maddesi çerçevesinde yargı yoluna başvurabilir. Yargı kararı kesindir.
+**İtiraz:** İDK kararlarına karşı, kararın tebliğinden sonra 10 gün içinde MDK'ya başvurulabilir. Hakkında Parti’den ya da gruptan geçici veya kesin çıkarma cezası verilen üye, Parti içi itiraz yollarını tükettikten sonra SPY'nin 57. maddesi çerçevesinde yargı yoluna başvurabilir. Yargı kararı kesindir.
 
 
 
-Geçici Madde 1
+**Geçici Madde 1**
 
 
 
