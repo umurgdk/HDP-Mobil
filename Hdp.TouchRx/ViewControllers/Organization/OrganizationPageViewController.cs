@@ -15,6 +15,12 @@ namespace Hdp.TouchRx.ViewControllers.Organization
 {
     public partial class OrganizationPageViewController : BaseViewController<OrganizationPageViewModel>
     {
+        public ContentWebView ContentWebView {
+            get {
+                return (ContentWebView)webView;
+            }
+        }
+
         public OrganizationPageViewController () : base ()
         {
             
@@ -31,9 +37,9 @@ namespace Hdp.TouchRx.ViewControllers.Organization
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)
                 .Subscribe (x => {
-                    var md = File.ReadAllText("Content/PartiTuzugu.md");
+                    var md = File.ReadAllText("Content/" + ViewModel.Document);
                     var html = NSData.FromString(CommonMarkConverter.Convert(md));
-                    webView.LoadData(html, "text/html", "utf-8", NSUrl.FromString("http://localhost"));   
+                    ContentWebView.LoadData(html, "text/html", "utf-8", NSUrl.FromString("http://localhost"));   
                 });
             
         }
