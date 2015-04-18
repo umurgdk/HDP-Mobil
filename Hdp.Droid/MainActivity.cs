@@ -11,8 +11,12 @@ using Android.Support.V7.App;
 using Widget = Android.Support.V7.Widget;
 
 using com.refractored;
+using Splat;
 
+using Hdp.CoreRx.Services;
 using Hdp.Droid.Adapters;
+using Hdp.Droid.Services;
+using Hdp.CoreRx;
 
 namespace Hdp.Droid
 {
@@ -28,6 +32,13 @@ namespace Hdp.Droid
         protected override void OnCreate (Bundle bundle)
         {
             base.OnCreate (bundle);
+
+            Locator.CurrentMutable.InitializeServices ();
+
+            var viewModelViews = Locator.Current.GetService<IViewModelViewService> ();
+            viewModelViews.RegisterViewModels (typeof(MainActivity).Assembly);
+
+            var hdpApp = new HDPApp(DeviceType.ios2x);
 
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);

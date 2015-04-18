@@ -1,10 +1,13 @@
 ﻿using System;
 using Java.Lang;
 
-using Android.Support.V4.App;
 using System.Collections.Generic;
 using Hdp.Droid.Fragments;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Hdp.CoreRx.ViewModels.ElectionArticles;
+using Splat;
+using Hdp.CoreRx.Services;
 
 namespace Hdp.Droid.Adapters
 {
@@ -15,9 +18,13 @@ namespace Hdp.Droid.Adapters
 
         public MainTabsAdapter (FragmentManager fm) : base (fm)
         {
+            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
+
+            var electionArticlesViewModel = serviceConstructor.Construct<ElectionArticlesViewModel> ();
+
             _titles = CharSequence.ArrayFromStringArray(new string[] {"Secim", "Haberler", "Etkinlikler", "Parti"});
             _fragments = new List<Fragment> {
-                new DummyFragment(),
+                new ElectionArticlesFragment(electionArticlesViewModel),
                 new DummyFragment(),
                 new DummyFragment(),
                 new DummyFragment()

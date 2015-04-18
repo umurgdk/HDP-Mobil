@@ -68,6 +68,7 @@ namespace Hdp.Droid
 			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextStyle = global::Hdp.Droid.Resource.Styleable.PagerSlidingTabStrip_pstsTextStyle;
 			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineColor = global::Hdp.Droid.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineColor;
 			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineHeight = global::Hdp.Droid.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineHeight;
+			global::Splat.Resource.String.library_name = global::Hdp.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -1303,6 +1304,15 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080016
 			public const int always = 2131230742;
 			
+			// aapt resource value: 0x7f080044
+			public const int articleBody = 2131230788;
+			
+			// aapt resource value: 0x7f080043
+			public const int articleDate = 2131230787;
+			
+			// aapt resource value: 0x7f080042
+			public const int articleImage = 2131230786;
+			
 			// aapt resource value: 0x7f080013
 			public const int beginning = 2131230739;
 			
@@ -1378,8 +1388,8 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f08000a
 			public const int normal = 2131230730;
 			
-			// aapt resource value: 0x7f080044
-			public const int pager = 2131230788;
+			// aapt resource value: 0x7f080047
+			public const int pager = 2131230791;
 			
 			// aapt resource value: 0x7f080005
 			public const int progress_circular = 2131230725;
@@ -1387,8 +1397,8 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080006
 			public const int progress_horizontal = 2131230726;
 			
-			// aapt resource value: 0x7f080045
-			public const int psts_tab_title = 2131230789;
+			// aapt resource value: 0x7f080048
+			public const int psts_tab_title = 2131230792;
 			
 			// aapt resource value: 0x7f08002d
 			public const int radio = 2131230765;
@@ -1444,8 +1454,8 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f08000b
 			public const int tabMode = 2131230731;
 			
-			// aapt resource value: 0x7f080043
-			public const int tabs = 2131230787;
+			// aapt resource value: 0x7f080046
+			public const int tabs = 2131230790;
 			
 			// aapt resource value: 0x7f080041
 			public const int textView1 = 2131230785;
@@ -1453,8 +1463,8 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080029
 			public const int title = 2131230761;
 			
-			// aapt resource value: 0x7f080042
-			public const int toolbar = 2131230786;
+			// aapt resource value: 0x7f080045
+			public const int toolbar = 2131230789;
 			
 			// aapt resource value: 0x7f080008
 			public const int up = 2131230728;
@@ -1573,16 +1583,19 @@ namespace Hdp.Droid
 			public const int DummyTab = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int Main = 2130903063;
+			public const int ElectionArticleItemLayout = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int psts_tab = 2130903064;
+			public const int Main = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int support_simple_spinner_dropdown_item = 2130903065;
+			public const int psts_tab = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int Toolbar = 2130903066;
+			public const int support_simple_spinner_dropdown_item = 2130903066;
+			
+			// aapt resource value: 0x7f03001b
+			public const int Toolbar = 2130903067;
 			
 			static Layout()
 			{
@@ -1645,11 +1658,14 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f0a000f
 			public const int abc_toolbar_collapse_description = 2131361807;
 			
+			// aapt resource value: 0x7f0a0012
+			public const int app_name = 2131361810;
+			
 			// aapt resource value: 0x7f0a0011
-			public const int app_name = 2131361809;
+			public const int hello = 2131361809;
 			
 			// aapt resource value: 0x7f0a0010
-			public const int hello = 2131361808;
+			public const int library_name = 2131361808;
 			
 			static String()
 			{
