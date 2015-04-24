@@ -85,9 +85,12 @@ namespace Hdp.Droid.Fragments
             _listView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
                 var itemViewModel = ViewModel.ArticleItems[e.Position];
 
-                var youtubeActivity = new Intent(container.Context, typeof(YoutubePlayerActivitiy));
-                youtubeActivity.PutExtra("VIDEO_ID", itemViewModel.VideoId);
-                StartActivity(youtubeActivity);
+                if (itemViewModel.MediaType == ElectionArticle.MediaType.Video) 
+                {
+                    var youtubeActivity = new Intent(container.Context, typeof(YoutubePlayerActivitiy));
+                    youtubeActivity.PutExtra("VIDEO_ID", itemViewModel.VideoId);
+                    StartActivity(youtubeActivity);   
+                }
             };
 
             _refreshLayout.AddView (_listView);
