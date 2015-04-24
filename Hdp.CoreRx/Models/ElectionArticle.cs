@@ -23,10 +23,7 @@ namespace Hdp.CoreRx.Models
         [JsonProperty(PropertyName="created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        [JsonIgnore]
         public string VideoImageUrl { get; set; } = "";
-
-        [JsonIgnore]
         public string VideoId { get; set; } = "";
 
         public enum MediaType

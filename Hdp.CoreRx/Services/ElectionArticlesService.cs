@@ -33,7 +33,7 @@ namespace Hdp.CoreRx.Services
 
         public async Task<List<ElectionArticle>> GetElectionArticlesAfterAsync (ElectionArticle latestArticle, Priority priority)
         {
-            List<ElectionArticle> articles = null;
+            List<ElectionArticle> articles = new List<ElectionArticle>();
             Task<List<ElectionArticle>> getArticlesTask;
 
             var timestamp = latestArticle.CreatedAt.ToUnixTimestamp ();
@@ -62,14 +62,24 @@ namespace Hdp.CoreRx.Services
             }
 
             return articles.Select(article => {
-                article.ImageUrl = ApiService.ApiBaseAddress + article.ImageUrl;
+                if (article.Type == ElectionArticle.MediaType.Video)
+                {
+                    article.VideoImageUrl = YoutubeHelper.GetThumbnailUrl(ApiService.Device, article.VideoUrl);
+                    article.VideoId = YoutubeHelper.GetVideoId(article.VideoUrl);
+                }
+
+                else if (article.Type == ElectionArticle.MediaType.Image)
+                {
+                    article.ImageUrl = ApiService.ApiBaseAddress + article.ImageUrl;
+                }
+
                 return article;
             }).ToList();
         }
 
         public async Task<List<ElectionArticle>> GetRemoteElectionArticlesAsync (Priority priority)
         {
-            List<ElectionArticle> articles = null;
+            List<ElectionArticle> articles = new List<ElectionArticle>();
             Task<List<ElectionArticle>> getArticlesTask;
 
             switch (priority) {
