@@ -25,8 +25,8 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+    <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -92,6 +93,15 @@
     <Reference Include="Connectivity.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.2\lib\MonoAndroid10\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="CommonMark">
+      <HintPath>..\packages\CommonMark.NET.0.8.5\lib\portable-net40+sl50+wp80+win+wpa81+MonoAndroid10+MonoTouch10\CommonMark.dll</HintPath>
+    </Reference>
+    <Reference Include="YouTubeApi">
+      <HintPath>YouTubeApi.dll</HintPath>
+    </Reference>
+    <Reference Include="UrlImageViewHelper">
+      <HintPath>..\DLLs\UrlImageViewHelper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -105,6 +115,15 @@
     <Compile Include="Services\Registration.cs" />
     <Compile Include="Services\ServiceConstructor.cs" />
     <Compile Include="RefitStubs.cs" />
+    <Compile Include="Fragments\NewsArticlesFragment.cs" />
+    <Compile Include="HDPApplication.cs" />
+    <Compile Include="Fragments\ReadArticleFragment.cs" />
+    <Compile Include="Fragments\EventsFragment.cs" />
+    <Compile Include="Fragments\OrganizationFragment.cs" />
+    <Compile Include="Fragments\ReadOrganizationFragment.cs" />
+    <Compile Include="Activities\YoutubePlayerActivitiy.cs" />
+    <Compile Include="Fragments\LoadingFragment.cs" />
+    <Compile Include="Fragments\BaseLoadingFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -126,6 +145,43 @@
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\layout\DummyTab.axml" />
     <AndroidResource Include="Resources\layout\ElectionArticleItemLayout.axml" />
+    <AndroidResource Include="Resources\layout\ArticleItemLayout.axml" />
+    <AndroidResource Include="Resources\drawable-mdpi\Card.xml" />
+    <AndroidResource Include="Resources\layout\ArticleReadLayout.axml" />
+    <AndroidResource Include="Resources\layout\EventItemLayout.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\CalendarIconSm.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\CalendarIconSm.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\CalendarIconSm.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\CalendarIconSm.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\CalendarIconSm.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ClockIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ClockIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ClockIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ClockIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ClockIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LocationIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\LocationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LocationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\LocationIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\LocationIcon.png" />
+    <AndroidResource Include="Resources\layout\OrganizationMenuItemLayout.axml" />
+    <AndroidResource Include="Resources\drawable-mdpi\BookIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\BookIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\BookIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\BookIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\BookIcon.png" />
+    <AndroidResource Include="Resources\layout\ReadOrganizationLayout.axml" />
+    <AndroidResource Include="Resources\drawable-mdpi\PlayIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PlayIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\PlayIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\PlayIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\PlayIcon.png" />
+    <AndroidResource Include="Resources\layout\LoadingLayout.axml" />
+    <AndroidResource Include="Resources\drawable-mdpi\LoadingIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LoadingIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LoadingIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\EventsLayout.axml" />
+    <AndroidResource Include="Resources\layout\EventsLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.0\build\MonoAndroid\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.0\build\MonoAndroid\SQLitePCL.raw_basic.targets')" />
@@ -141,5 +197,17 @@
     <Folder Include="Adapters\" />
     <Folder Include="DroidExtensions\" />
     <Folder Include="Services\" />
+    <Folder Include="Activities\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\DanismaKurulu.md" />
+    <AndroidAsset Include="Assets\Content\EsBaskanlar.md" />
+    <AndroidAsset Include="Assets\Content\Kurucular.md" />
+    <AndroidAsset Include="Assets\Content\MerkezYurutmeKurulu.md" />
+    <AndroidAsset Include="Assets\Content\PartiMeclisi.md" />
+    <AndroidAsset Include="Assets\Content\PartiProgrami.md" />
+    <AndroidAsset Include="Assets\Content\PartiTuzugu.md" />
+    <AndroidAsset Include="Assets\Content\UzlastirmaKurulu.md" />
   </ItemGroup>
 </Project>

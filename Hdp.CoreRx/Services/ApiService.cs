@@ -8,10 +8,10 @@ namespace Hdp.CoreRx.Services
 {
     public class ApiService : IApiService
     {
-        public static string ApiBaseAddress = "http://192.168.0.15:3000/";
+        public static string ApiBaseAddress = "http://192.168.0.16:3000";
         public static DeviceType Device = DeviceType.ios;
 
-        public ApiService (string apiBaseAddress = "http://192.168.0.15:3000/", DeviceType deviceType = DeviceType.ios)
+        public ApiService (string apiBaseAddress = "http://192.168.0.16:3000", DeviceType deviceType = DeviceType.ios)
         {
             Device = deviceType;
             ApiBaseAddress = apiBaseAddress;
@@ -19,7 +19,7 @@ namespace Hdp.CoreRx.Services
             Func<HttpMessageHandler, IHDPApiService> createClient = messageHandler => 
             {
                 var client = new HttpClient(messageHandler) {
-                    BaseAddress = new Uri(apiBaseAddress ?? ApiBaseAddress)
+                    BaseAddress = new Uri(ApiBaseAddress)
                 };
 
                 return RestService.For<IHDPApiService>(client);

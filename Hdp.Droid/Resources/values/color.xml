@@ -6,4 +6,13 @@
     <color name="colorAccent">#FFFF8C</color>
     <color name="tabsScrollColor">#FFFF8C</color>
     <color name="textColorPrimary">#ffffff</color>
+    <color name="background">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <!-- card colors -->
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow_1">#d4d4d4</color>
+    <color name="card_shadow_2">#dddddd</color>
+    <color name="card_detailing">#eee</color>
+	<!-- lists-->
+	<color name="myListSelector">#dddddd</color>
 </resources>

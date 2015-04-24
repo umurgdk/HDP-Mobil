@@ -50,10 +50,16 @@ namespace Hdp.CoreRx.Services
             return (Task<List<Article>>) methodImpls["GetArticles"](Client, arguments);
         }
 
-        public virtual Task<Article> GetArticleById(int id,DeviceType deviceType)
+        public virtual Task<List<Article>> GetArticlesAfter(int after,DeviceType deviceType)
         {
-            var arguments = new object[] { id,deviceType };
-            return (Task<Article>) methodImpls["GetArticleById"](Client, arguments);
+            var arguments = new object[] { after,deviceType };
+            return (Task<List<Article>>) methodImpls["GetArticlesAfter"](Client, arguments);
+        }
+
+        public virtual Task<List<Article>> GetArticlesBefore(int before,DeviceType deviceType)
+        {
+            var arguments = new object[] { before,deviceType };
+            return (Task<List<Article>>) methodImpls["GetArticlesBefore"](Client, arguments);
         }
 
         public virtual Task<List<Event>> GetEvents(DeviceType deviceType)
@@ -62,10 +68,34 @@ namespace Hdp.CoreRx.Services
             return (Task<List<Event>>) methodImpls["GetEvents"](Client, arguments);
         }
 
+        public virtual Task<List<Event>> GetEventsAfter(int after,DeviceType deviceType)
+        {
+            var arguments = new object[] { after,deviceType };
+            return (Task<List<Event>>) methodImpls["GetEventsAfter"](Client, arguments);
+        }
+
+        public virtual Task<List<Event>> GetEventsBefore(int before,DeviceType deviceType)
+        {
+            var arguments = new object[] { before,deviceType };
+            return (Task<List<Event>>) methodImpls["GetEventsBefore"](Client, arguments);
+        }
+
         public virtual Task<List<ElectionArticle>> GetElectionArticles(DeviceType deviceType)
         {
             var arguments = new object[] { deviceType };
             return (Task<List<ElectionArticle>>) methodImpls["GetElectionArticles"](Client, arguments);
+        }
+
+        public virtual Task<List<ElectionArticle>> GetElectionArticlesAfter(int after,DeviceType deviceType)
+        {
+            var arguments = new object[] { after,deviceType };
+            return (Task<List<ElectionArticle>>) methodImpls["GetElectionArticlesAfter"](Client, arguments);
+        }
+
+        public virtual Task<List<ElectionArticle>> GetElectionArticlesBefore(int before,DeviceType deviceType)
+        {
+            var arguments = new object[] { before,deviceType };
+            return (Task<List<ElectionArticle>>) methodImpls["GetElectionArticlesBefore"](Client, arguments);
         }
 
     }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/card"
+    android:layout_width="fill_parent"
+    android:paddingBottom="26dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/articleImage"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/articleTitle"
+        android:text="Sample Title"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/articleImage"
+        android:background="#88000000"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp" />
+    <TextView
+        android:id="@+id/articleCategory"
+        android:text="Politika"
+        android:textColor="#aaffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/articleImage"
+        android:layout_margin="16dp" />
+    <TextView
+        android:id="@+id/articleDate"
+        android:text="16 Nisan 2015"
+        android:textColor="#888"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_below="@id/articleImage"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="16dp"
+        android:textSize="12sp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/articleDate"
+        android:id="@+id/articleSummary"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="16dp"
+        android:textSize="16sp"
+        android:textColor="#555" />
+</RelativeLayout>

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-	<style name="Theme.HDP" parent="@style/Theme.AppCompat.Light">
+	<style name="Theme.HDP" parent="@style/Theme.AppCompat.Light.DarkActionBar">
 		<item name="colorPrimary">@color/colorPrimary</item>
 	    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 	    <item name="colorAccent">@color/colorAccent</item>
 	    <item name="windowActionBar">false</item>
+	    <item name="background">@color/background</item>
 	    <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
 	</style>
 </resources>

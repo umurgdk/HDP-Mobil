@@ -30,6 +30,24 @@ namespace Hdp.CoreRx.ViewModels
             set { this.RaiseAndSetIfChanged (ref this.category, value); }
         }
 
+        private string body;
+        public string Body {
+            get { return this.body; }
+            set { this.RaiseAndSetIfChanged (ref this.body, value); }
+        }
+
+        private string summary;
+        public string Summary {
+            get { return this.summary; }
+            set { this.RaiseAndSetIfChanged (ref this.summary, value); }
+        }
+
+        private DateTime createdAt;
+        public DateTime CreatedAt {
+            get { return this.createdAt; }
+            set { this.RaiseAndSetIfChanged (ref this.createdAt, value); }
+        }
+
         public Article Model { get; set; }
 
 
@@ -43,6 +61,9 @@ namespace Hdp.CoreRx.ViewModels
             Title = model.Title;
             Category = model.Category;
             ImageUrl = model.ImageUrl;
+            Body = model.Body;
+            Summary = model.Summary;
+            CreatedAt = model.CreatedAt;
 
             GoToCommand = ReactiveCommand.Create ();
             GoToCommand.Subscribe (x => gotoCommand (this));

@@ -10,6 +10,7 @@ using Connectivity.Plugin;
 using Polly;
 using System.Net;
 using Hdp.CoreRx.Helpers;
+using Hdp.CoreRx.Extensions;
 
 namespace Hdp.CoreRx.Services
 {
@@ -30,7 +31,43 @@ namespace Hdp.CoreRx.Services
             return await cachedArticles.FirstOrDefaultAsync ();
         }
 
-        private async Task<List<ElectionArticle>> GetRemoteElectionArticlesAsync (Priority priority)
+        public async Task<List<ElectionArticle>> GetElectionArticlesAfterAsync (ElectionArticle latestArticle, Priority priority)
+        {
+            List<ElectionArticle> articles = null;
+            Task<List<ElectionArticle>> getArticlesTask;
+
+            var timestamp = latestArticle.CreatedAt.ToUnixTimestamp ();
+
+            switch (priority) {
+            case Priority.Background:
+                getArticlesTask = _apiService.Background.GetElectionArticlesAfter (timestamp, ApiService.Device);
+                break;
+            case Priority.UserInitiated:
+                getArticlesTask = _apiService.UserInitiated.GetElectionArticlesAfter (timestamp, ApiService.Device);
+                break;
+            case Priority.Speculative:
+                getArticlesTask = _apiService.Speculative.GetElectionArticlesAfter (timestamp, ApiService.Device);
+                break;
+            default:
+                getArticlesTask = _apiService.UserInitiated.GetElectionArticlesAfter (timestamp, ApiService.Device);
+                break;
+            }
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                articles = await Policy
+                    .Handle<WebException> ()
+                    .WaitAndRetryAsync (2, retryAttempt => TimeSpan.FromSeconds (Math.Pow (2, retryAttempt)))
+                    .ExecuteAsync(async () => await getArticlesTask);
+            }
+
+            return articles.Select(article => {
+                article.ImageUrl = ApiService.ApiBaseAddress + article.ImageUrl;
+                return article;
+            }).ToList();
+        }
+
+        public async Task<List<ElectionArticle>> GetRemoteElectionArticlesAsync (Priority priority)
         {
             List<ElectionArticle> articles = null;
             Task<List<ElectionArticle>> getArticlesTask;

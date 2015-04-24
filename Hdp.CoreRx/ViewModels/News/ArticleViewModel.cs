@@ -29,6 +29,12 @@ namespace Hdp.CoreRx.ViewModels
             get { return this.model; }
             set { this.RaiseAndSetIfChanged (ref this.model, value); }
         }
+
+        private DateTime createdAt;
+        public DateTime CreatedAt {
+            get { return this.createdAt; }
+            set { this.RaiseAndSetIfChanged (ref this.createdAt, value); }
+        }
     }
 }
 

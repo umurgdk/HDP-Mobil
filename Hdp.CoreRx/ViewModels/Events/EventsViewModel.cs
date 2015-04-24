@@ -4,45 +4,35 @@ using Hdp.CoreRx.Models;
 using Hdp.CoreRx.Services;
 using System.Collections.Generic;
 using Fusillade;
+using System.Reactive.Linq;
 
 namespace Hdp.CoreRx.ViewModels.Events
 {
-    public class EventsViewModel : BaseViewModel
+    public class EventsViewModel : BaseViewModel, ILoadingViewModel
     {
-        public ReactiveList<Event> Events { get; protected set; } = new ReactiveList<Event>();
-        public IReactiveDerivedList<EventItemViewModel> EventItems;
+        public IReactiveDerivedList<EventItemViewModel> EventItems { get; private set; }
+        public IReactiveCommand FetchNewEvents { get; private set; }
 
-        private readonly IEventsService _eventsService;
+        private ObservableAsPropertyHelper<bool> _isLoading;
+        public bool IsLoading {
+            get { return this._isLoading.Value; }
+        }
 
-        public IReactiveCommand<List<Event>> LoadCommand;
-
-        public EventsViewModel (IEventsService eventsService)
+        public EventsViewModel (HDPApp _app)
         {
-            _eventsService = eventsService;
-
             Title = "Etkinlikler";
 
-            var gotoCommand = new Action<EventItemViewModel> (x => {
-                var vm = this.CreateViewModel<EventViewModel>();
-                vm.EventTitle = x.Model.Title;
-                vm.Time = x.Model.Time;
-                vm.Location = x.Model.Location;
-                
-                NavigateTo(vm);
-            });
-
-            EventItems = Events.CreateDerivedCollection (
-                x => new EventItemViewModel(x, gotoCommand),
+            EventItems = _app.State.Events.CreateDerivedCollection (
+                x => new EventItemViewModel(x),
                 orderer: (x, y) => y.Model.Time.CompareTo(x.Model.Time));
 
-            LoadCommand = ReactiveCommand.CreateAsyncTask (async _ => {
-                return await _eventsService.GetEvents(Priority.UserInitiated);
-            });
+            this.WhenAnyValue (x => x.EventItems.Count)
+                .Select (x => x == 0)
+                .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            LoadCommand.Subscribe (events => {
-                Events.Reset();
-                Events.AddRange(events);
-            });
+            FetchNewEvents = ReactiveCommand.CreateCombined (
+                _app.FetchNewEvents.CanExecuteObservable, 
+                _app.FetchNewEvents);
         }
     }
 }

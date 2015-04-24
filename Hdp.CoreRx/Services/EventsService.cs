@@ -8,6 +8,7 @@ using Akavache;
 using Connectivity.Plugin;
 using Polly;
 using System.Net;
+using Hdp.CoreRx.Extensions;
 
 namespace Hdp.CoreRx.Services
 {
@@ -28,7 +29,40 @@ namespace Hdp.CoreRx.Services
             return await cachedEvents.FirstOrDefaultAsync ();
         }
 
-        private async Task<List<Event>> GetRemoteEventsAsync (Priority priority)
+        public async Task<List<Event>> GetEventsAfterAsync (Event latestEvent, Priority priority)
+        {
+            List<Event> articles = null;
+            Task<List<Event>> getEventsTask;
+
+            var timestamp = latestEvent.CreatedAt.ToUnixTimestamp ();
+
+            switch (priority) {
+            case Priority.Background:
+                getEventsTask = _apiService.Background.GetEventsAfter (timestamp, ApiService.Device);
+                break;
+            case Priority.UserInitiated:
+                getEventsTask = _apiService.UserInitiated.GetEventsAfter (timestamp, ApiService.Device);
+                break;
+            case Priority.Speculative:
+                getEventsTask = _apiService.Speculative.GetEventsAfter (timestamp, ApiService.Device);
+                break;
+            default:
+                getEventsTask = _apiService.UserInitiated.GetEventsAfter (timestamp, ApiService.Device);
+                break;
+            }
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                articles = await Policy
+                    .Handle<WebException> ()
+                    .WaitAndRetryAsync (2, retryAttempt => TimeSpan.FromSeconds (Math.Pow (2, retryAttempt)))
+                    .ExecuteAsync(async () => await getEventsTask);
+            }
+
+            return articles;
+        }
+
+        public async Task<List<Event>> GetRemoteEventsAsync (Priority priority)
         {
             List<Event> events = null;
             Task<List<Event>> getEventsTask;

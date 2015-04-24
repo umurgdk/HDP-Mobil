@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
 using ReactiveUI;
 using Hdp.CoreRx.Models;
 using System.Threading.Tasks;
@@ -11,20 +14,27 @@ using Newtonsoft.Json;
 
 namespace Hdp.CoreRx.ViewModels
 {
-    public class NewsViewModel : BaseViewModel
+    public class NewsViewModel : BaseViewModel, ILoadingViewModel
     {
-        public ReactiveList<Models.Article> Articles { get; protected set; } = new ReactiveList<Models.Article>();
-
         public IReactiveDerivedList<ArticleItemViewModel> ArticleItems { get; protected set; }
-        public IReactiveDerivedList<ArticleItemViewModel> VisibleArticles { get; protected set; }
 
-        private readonly INewsService _newsService;
+        public IReactiveCommand FetchNewArticles { get; private set; }
+        public IReactiveCommand LoadMoreArticles { get; private set; }
 
-        public IReactiveCommand<List<Article>> LoadCommand { get; private set; }
+        #region ILoadingViewModel implementation
+        ObservableAsPropertyHelper<bool> _isLoading;
+        public bool IsLoading {
+            get {
+                return _isLoading.Value;
+            }
+        }
+        #endregion
 
-        public NewsViewModel (INewsService newsService)
+        HDPApp _application;
+
+        public NewsViewModel (HDPApp application)
         {
-            _newsService = newsService;
+            _application = application;
 
             Title = "Haberler";
 
@@ -33,27 +43,23 @@ namespace Hdp.CoreRx.ViewModels
                 vm.ArticleTitle = x.Model.Title;
                 vm.Body = x.Model.Body;
                 vm.ImageUrl = x.Model.ImageUrl;
+                vm.CreatedAt = x.Model.CreatedAt;
 
                 NavigateTo(vm);
             });
 
-            ArticleItems = Articles.CreateDerivedCollection (
+            ArticleItems = _application.State.Articles.CreateDerivedCollection (
                 x => new ArticleItemViewModel (x, gotoArticle),
                 x => true,
-                (x, y) => x.Model.Title.CompareTo(y.Model.Title));
+                (x, y) => x.Model.CreatedAt.CompareTo(y.Model.CreatedAt) * -1);
 
-            VisibleArticles = ArticleItems.CreateDerivedCollection (
-                x => x,
-                x => !x.IsHidden);
+            this.WhenAnyValue (x => x.ArticleItems.Count)
+                .Select (x => x == 0)
+                .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            LoadCommand = ReactiveCommand.CreateAsyncTask (async _ => {
-                return await _newsService.GetArticles (Priority.Background).ConfigureAwait (false);
-            });
-
-            LoadCommand.Subscribe (articles => {
-                Articles.Reset();
-                Articles.AddRange(articles);
-            });
+            FetchNewArticles = ReactiveCommand.CreateCombined (
+                _application.FetchNewArticles.CanExecuteObservable, 
+                _application.FetchNewArticles);
         }
     }
 }

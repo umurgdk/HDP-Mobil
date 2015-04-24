@@ -4,23 +4,27 @@ using Hdp.CoreRx.Models;
 using Hdp.CoreRx.Services;
 using System.Collections.Generic;
 using Fusillade;
+using System.Reactive.Linq;
 
 namespace Hdp.CoreRx.ViewModels.ElectionArticles
 {
-    public class ElectionArticlesViewModel : BaseViewModel
+    public class ElectionArticlesViewModel : BaseViewModel, ILoadingViewModel
     {
-        public ReactiveList<ElectionArticle> Articles { get; protected set; } = new ReactiveList<ElectionArticle>();
-
         public IReactiveDerivedList<ElectionArticleItemViewModel> ArticleItems { get; protected set; }
 
-        private readonly IElectionArticlesService _electionArticlesService;
-
-        public IReactiveCommand<List<ElectionArticle>> LoadCommand { get; private set; }
+        public IReactiveCommand FetchNewArticles { get; private set; }
         public IReactiveCommand<string> PlayVideoCommand { get; private set; }
 
-        public ElectionArticlesViewModel (IElectionArticlesService electionArticleService)
+        #region ILoadingViewModel implementation
+        private ObservableAsPropertyHelper<bool> _isLoading;
+        public bool IsLoading {
+            get { return this._isLoading.Value; }
+        }
+        #endregion
+
+
+        public ElectionArticlesViewModel (HDPApp _app)
         {
-            _electionArticlesService = electionArticleService;
 
             Title = "Secim";
 
@@ -35,23 +39,18 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
                 }
             });
 
-            ArticleItems = Articles.CreateDerivedCollection (
+            ArticleItems = _app.State.ElectionArticles.CreateDerivedCollection (
                 x => new ElectionArticleItemViewModel (x, gotoElectionArticle),
-                orderer: (x, y) => x.CreatedAt.CompareTo (y.CreatedAt));
+                orderer: (x, y) => x.CreatedAt.CompareTo (y.CreatedAt) * -1);
 
-            LoadCommand = ReactiveCommand.CreateAsyncTask (async (param) => {
-                Priority priority = Priority.Background;
 
-                if (param != null && param is Priority)
-                    priority = (Priority)param;
-                
-                return await _electionArticlesService.GetElectionArticles(priority);
-            });
+            this.WhenAnyValue (x => x.ArticleItems.Count)
+                .Select (x => x == 0)
+                .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            LoadCommand.Subscribe (articles => {
-                Articles.Reset();
-                Articles.AddRange(articles);
-            });
+            FetchNewArticles = ReactiveCommand.CreateCombined (
+                _app.FetchNewElectionArticles.CanExecuteObservable, 
+                _app.FetchNewElectionArticles);
         }
     }
 }

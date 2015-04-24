@@ -25,6 +25,12 @@ namespace Hdp.CoreRx.ViewModels.Events
             set { this.RaiseAndSetIfChanged (ref this.location, value); }
         }
 
+        private DateTime createdAt;
+        public DateTime CreatedAt {
+            get { return this.createdAt; }
+            set { this.RaiseAndSetIfChanged (ref this.createdAt, value); }
+        }
+
         readonly ObservableAsPropertyHelper<string> dateText;
         public string DateText {
             get { return dateText.Value; }
@@ -37,8 +43,16 @@ namespace Hdp.CoreRx.ViewModels.Events
 
         public Event Model { get; set; }
 
-        public EventViewModel ()
+        public EventViewModel (Event model)
         {
+            Model = model;
+
+            Title = model.Title;
+            EventTitle = model.Title;
+            Location = model.Location;
+            Time = model.Time;
+            CreatedAt = model.CreatedAt;
+
             this.WhenAnyValue (x => x.Time)
                 .Select (x => x.ToString ("dd MMMM yyyy"))
                 .ToProperty (this, x => x.DateText, out dateText);

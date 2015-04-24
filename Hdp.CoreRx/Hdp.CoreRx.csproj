@@ -70,6 +70,10 @@
     <Compile Include="ViewModels\ElectionArticles\ElectionArticlesViewModel.cs" />
     <Compile Include="ViewModels\ElectionArticles\ElectionArticleItemViewModel.cs" />
     <Compile Include="Helpers\YoutubeHelper.cs" />
+    <Compile Include="ViewModels\ILoadingViewModel.cs" />
+    <Compile Include="Models\AppState.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\RailsDateConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\refit.2.2.1\build\refit.targets" Condition="Exists('..\packages\refit.2.2.1\build\refit.targets')" />

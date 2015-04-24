@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="13dp"
+        android:background="#fff" />
+    <ImageView
+        android:id="@+id/imageView1"
+        android:src="@drawable/calendariconsm"
+        android:scaleType="centerCrop"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
+        android:tint="#888"
+        android:layout_marginLeft="16dp" />
+    <TextView
+        android:id="@+id/eventDate"
+        android:text="16 Ocak 2015"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView1"
+        android:layout_marginTop="2dp"
+        android:textColor="#999"
+        android:textSize="12sp"
+        android:layout_alignTop="@id/imageView1" />
+    <TextView
+        android:id="@+id/eventTitle"
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventDate"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignLeft="@id/eventDate"
+        android:textColor="#444" />
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_below="@id/eventTitle"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="8dp"
+        android:layout_alignLeft="@id/eventTitle"
+        android:src="@drawable/clockicon" />
+    <TextView
+        android:id="@+id/eventTime"
+        android:text="13:10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView2"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="4dp"
+        android:layout_below="@id/eventTitle"
+        android:textColor="#3498DB"
+        android:textSize="14sp" />
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_toRightOf="@id/eventTime"
+        android:id="@+id/imageView3"
+        android:layout_alignTop="@id/imageView2"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/locationicon" />
+    <TextView
+        android:text="Ankara Il Binasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView3"
+        android:id="@+id/eventLocation"
+        android:layout_alignTop="@id/eventTime"
+        android:layout_marginLeft="4dp"
+        android:textColor="#ffbe9800"
+        android:textSize="14sp" />
+</RelativeLayout>

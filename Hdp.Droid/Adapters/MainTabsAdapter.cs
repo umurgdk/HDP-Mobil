@@ -8,6 +8,9 @@ using Android.Support.V4.App;
 using Hdp.CoreRx.ViewModels.ElectionArticles;
 using Splat;
 using Hdp.CoreRx.Services;
+using Hdp.CoreRx.ViewModels;
+using Hdp.CoreRx.ViewModels.Events;
+using Hdp.CoreRx.ViewModels.Organization;
 
 namespace Hdp.Droid.Adapters
 {
@@ -21,13 +24,16 @@ namespace Hdp.Droid.Adapters
             var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
 
             var electionArticlesViewModel = serviceConstructor.Construct<ElectionArticlesViewModel> ();
+            var newsViewModel = serviceConstructor.Construct<NewsViewModel> ();
+            var eventsViewModel = serviceConstructor.Construct<EventsViewModel> ();
+            var organizationMenuViewModel = serviceConstructor.Construct<OrganizationMenuViewModel> ();
 
             _titles = CharSequence.ArrayFromStringArray(new string[] {"Secim", "Haberler", "Etkinlikler", "Parti"});
             _fragments = new List<Fragment> {
                 new ElectionArticlesFragment(electionArticlesViewModel),
-                new DummyFragment(),
-                new DummyFragment(),
-                new DummyFragment()
+                new NewsArticlesFragment(newsViewModel),
+                new EventsFragment(eventsViewModel),
+                new OrganizationFragment(organizationMenuViewModel)
             };
         }
 

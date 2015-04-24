@@ -713,29 +713,29 @@ namespace Hdp.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f060037
-			public const int abc_background_cache_hint_selector_material_dark = 2131099703;
+			// aapt resource value: 0x7f06003e
+			public const int abc_background_cache_hint_selector_material_dark = 2131099710;
 			
-			// aapt resource value: 0x7f060038
-			public const int abc_background_cache_hint_selector_material_light = 2131099704;
+			// aapt resource value: 0x7f06003f
+			public const int abc_background_cache_hint_selector_material_light = 2131099711;
 			
 			// aapt resource value: 0x7f060000
 			public const int abc_input_method_navigation_guard = 2131099648;
 			
-			// aapt resource value: 0x7f060039
-			public const int abc_primary_text_disable_only_material_dark = 2131099705;
+			// aapt resource value: 0x7f060040
+			public const int abc_primary_text_disable_only_material_dark = 2131099712;
 			
-			// aapt resource value: 0x7f06003a
-			public const int abc_primary_text_disable_only_material_light = 2131099706;
+			// aapt resource value: 0x7f060041
+			public const int abc_primary_text_disable_only_material_light = 2131099713;
 			
-			// aapt resource value: 0x7f06003b
-			public const int abc_primary_text_material_dark = 2131099707;
+			// aapt resource value: 0x7f060042
+			public const int abc_primary_text_material_dark = 2131099714;
 			
-			// aapt resource value: 0x7f06003c
-			public const int abc_primary_text_material_light = 2131099708;
+			// aapt resource value: 0x7f060043
+			public const int abc_primary_text_material_light = 2131099715;
 			
-			// aapt resource value: 0x7f06003d
-			public const int abc_search_url_text = 2131099709;
+			// aapt resource value: 0x7f060044
+			public const int abc_search_url_text = 2131099716;
 			
 			// aapt resource value: 0x7f060001
 			public const int abc_search_url_text_normal = 2131099649;
@@ -746,17 +746,20 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f060003
 			public const int abc_search_url_text_selected = 2131099651;
 			
-			// aapt resource value: 0x7f06003e
-			public const int abc_secondary_text_material_dark = 2131099710;
+			// aapt resource value: 0x7f060045
+			public const int abc_secondary_text_material_dark = 2131099717;
 			
-			// aapt resource value: 0x7f06003f
-			public const int abc_secondary_text_material_light = 2131099711;
+			// aapt resource value: 0x7f060046
+			public const int abc_secondary_text_material_light = 2131099718;
 			
 			// aapt resource value: 0x7f060004
 			public const int accent_material_dark = 2131099652;
 			
 			// aapt resource value: 0x7f060005
 			public const int accent_material_light = 2131099653;
+			
+			// aapt resource value: 0x7f060037
+			public const int background = 2131099703;
 			
 			// aapt resource value: 0x7f060006
 			public const int background_floating_material_dark = 2131099654;
@@ -793,6 +796,18 @@ namespace Hdp.Droid
 			
 			// aapt resource value: 0x7f060011
 			public const int button_material_light = 2131099665;
+			
+			// aapt resource value: 0x7f060039
+			public const int card_background = 2131099705;
+			
+			// aapt resource value: 0x7f06003c
+			public const int card_detailing = 2131099708;
+			
+			// aapt resource value: 0x7f06003a
+			public const int card_shadow_1 = 2131099706;
+			
+			// aapt resource value: 0x7f06003b
+			public const int card_shadow_2 = 2131099707;
 			
 			// aapt resource value: 0x7f060034
 			public const int colorAccent = 2131099700;
@@ -847,6 +862,9 @@ namespace Hdp.Droid
 			
 			// aapt resource value: 0x7f060020
 			public const int material_deep_teal_500 = 2131099680;
+			
+			// aapt resource value: 0x7f06003d
+			public const int myListSelector = 2131099709;
 			
 			// aapt resource value: 0x7f060021
 			public const int primary_dark_material_dark = 2131099681;
@@ -904,6 +922,9 @@ namespace Hdp.Droid
 			
 			// aapt resource value: 0x7f060036
 			public const int textColorPrimary = 2131099702;
+			
+			// aapt resource value: 0x7f060038
+			public const int transparent = 2131099704;
 			
 			static Color()
 			{
@@ -1241,10 +1262,34 @@ namespace Hdp.Droid
 			public const int abc_textfield_search_material = 2130837558;
 			
 			// aapt resource value: 0x7f020037
-			public const int Icon = 2130837559;
+			public const int BookIcon = 2130837559;
 			
 			// aapt resource value: 0x7f020038
-			public const int psts_background_tab = 2130837560;
+			public const int CalendarIconSm = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int Card = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int ClockIcon = 2130837562;
+			
+			// aapt resource value: 0x7f02003b
+			public const int EventsLayout = 2130837563;
+			
+			// aapt resource value: 0x7f02003c
+			public const int Icon = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int LoadingIcon = 2130837565;
+			
+			// aapt resource value: 0x7f02003e
+			public const int LocationIcon = 2130837566;
+			
+			// aapt resource value: 0x7f02003f
+			public const int PlayIcon = 2130837567;
+			
+			// aapt resource value: 0x7f020040
+			public const int psts_background_tab = 2130837568;
 			
 			static Drawable()
 			{
@@ -1304,14 +1349,26 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080016
 			public const int always = 2131230742;
 			
-			// aapt resource value: 0x7f080044
-			public const int articleBody = 2131230788;
+			// aapt resource value: 0x7f080049
+			public const int articleBody = 2131230793;
+			
+			// aapt resource value: 0x7f080046
+			public const int articleBodyWeb = 2131230790;
 			
 			// aapt resource value: 0x7f080043
-			public const int articleDate = 2131230787;
+			public const int articleCategory = 2131230787;
+			
+			// aapt resource value: 0x7f080044
+			public const int articleDate = 2131230788;
+			
+			// aapt resource value: 0x7f080041
+			public const int articleImage = 2131230785;
+			
+			// aapt resource value: 0x7f080045
+			public const int articleSummary = 2131230789;
 			
 			// aapt resource value: 0x7f080042
-			public const int articleImage = 2131230786;
+			public const int articleTitle = 2131230786;
 			
 			// aapt resource value: 0x7f080013
 			public const int beginning = 2131230739;
@@ -1346,6 +1403,21 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080014
 			public const int end = 2131230740;
 			
+			// aapt resource value: 0x7f08004b
+			public const int eventDate = 2131230795;
+			
+			// aapt resource value: 0x7f080050
+			public const int eventLocation = 2131230800;
+			
+			// aapt resource value: 0x7f08004e
+			public const int eventTime = 2131230798;
+			
+			// aapt resource value: 0x7f08004c
+			public const int eventTitle = 2131230796;
+			
+			// aapt resource value: 0x7f080052
+			public const int eventsList = 2131230802;
+			
 			// aapt resource value: 0x7f080024
 			public const int expand_activities_button = 2131230756;
 			
@@ -1367,6 +1439,15 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080025
 			public const int image = 2131230757;
 			
+			// aapt resource value: 0x7f08004a
+			public const int imageView1 = 2131230794;
+			
+			// aapt resource value: 0x7f08004d
+			public const int imageView2 = 2131230797;
+			
+			// aapt resource value: 0x7f08004f
+			public const int imageView3 = 2131230799;
+			
 			// aapt resource value: 0x7f08001f
 			public const int italic = 2131230751;
 			
@@ -1375,6 +1456,12 @@ namespace Hdp.Droid
 			
 			// aapt resource value: 0x7f080027
 			public const int list_item = 2131230759;
+			
+			// aapt resource value: 0x7f080055
+			public const int mainFrame = 2131230805;
+			
+			// aapt resource value: 0x7f080058
+			public const int menuTitle = 2131230808;
 			
 			// aapt resource value: 0x7f080015
 			public const int middle = 2131230741;
@@ -1388,8 +1475,17 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f08000a
 			public const int normal = 2131230730;
 			
-			// aapt resource value: 0x7f080047
-			public const int pager = 2131230791;
+			// aapt resource value: 0x7f08005a
+			public const int organizationPageBodyWeb = 2131230810;
+			
+			// aapt resource value: 0x7f080057
+			public const int pager = 2131230807;
+			
+			// aapt resource value: 0x7f080048
+			public const int playIcon = 2131230792;
+			
+			// aapt resource value: 0x7f080053
+			public const int progressBar1 = 2131230803;
 			
 			// aapt resource value: 0x7f080005
 			public const int progress_circular = 2131230725;
@@ -1397,8 +1493,8 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f080006
 			public const int progress_horizontal = 2131230726;
 			
-			// aapt resource value: 0x7f080048
-			public const int psts_tab_title = 2131230792;
+			// aapt resource value: 0x7f080059
+			public const int psts_tab_title = 2131230809;
 			
 			// aapt resource value: 0x7f08002d
 			public const int radio = 2131230765;
@@ -1451,26 +1547,32 @@ namespace Hdp.Droid
 			// aapt resource value: 0x7f08003e
 			public const int submit_area = 2131230782;
 			
+			// aapt resource value: 0x7f080051
+			public const int swipeContainer = 2131230801;
+			
 			// aapt resource value: 0x7f08000b
 			public const int tabMode = 2131230731;
 			
-			// aapt resource value: 0x7f080046
-			public const int tabs = 2131230790;
+			// aapt resource value: 0x7f080056
+			public const int tabs = 2131230806;
 			
-			// aapt resource value: 0x7f080041
-			public const int textView1 = 2131230785;
+			// aapt resource value: 0x7f080047
+			public const int textView1 = 2131230791;
 			
 			// aapt resource value: 0x7f080029
 			public const int title = 2131230761;
 			
-			// aapt resource value: 0x7f080045
-			public const int toolbar = 2131230789;
+			// aapt resource value: 0x7f080054
+			public const int toolbar = 2131230804;
 			
 			// aapt resource value: 0x7f080008
 			public const int up = 2131230728;
 			
 			// aapt resource value: 0x7f080012
 			public const int useLogo = 2131230738;
+			
+			// aapt resource value: 0x7f08005b
+			public const int view1 = 2131230811;
 			
 			// aapt resource value: 0x7f08001a
 			public const int withText = 2131230746;
@@ -1580,22 +1682,43 @@ namespace Hdp.Droid
 			public const int abc_simple_dropdown_hint = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int DummyTab = 2130903062;
+			public const int ArticleItemLayout = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int ElectionArticleItemLayout = 2130903063;
+			public const int ArticleReadLayout = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int Main = 2130903064;
+			public const int DummyTab = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int psts_tab = 2130903065;
+			public const int ElectionArticleItemLayout = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int support_simple_spinner_dropdown_item = 2130903066;
+			public const int EventItemLayout = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int Toolbar = 2130903067;
+			public const int EventsLayout = 2130903067;
+			
+			// aapt resource value: 0x7f03001c
+			public const int LoadingLayout = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int Main = 2130903069;
+			
+			// aapt resource value: 0x7f03001e
+			public const int OrganizationMenuItemLayout = 2130903070;
+			
+			// aapt resource value: 0x7f03001f
+			public const int psts_tab = 2130903071;
+			
+			// aapt resource value: 0x7f030020
+			public const int ReadOrganizationLayout = 2130903072;
+			
+			// aapt resource value: 0x7f030021
+			public const int support_simple_spinner_dropdown_item = 2130903073;
+			
+			// aapt resource value: 0x7f030022
+			public const int Toolbar = 2130903074;
 			
 			static Layout()
 			{

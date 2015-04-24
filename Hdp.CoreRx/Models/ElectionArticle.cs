@@ -7,24 +7,27 @@ namespace Hdp.CoreRx.Models
 {
     public class ElectionArticle
     {
-        public int Id {get;set;}
-        public string Title {get;set;}
-        public string Body {get;set;}
+        public int Id {get;set;} = 0;
+        public string Title {get;set;} = "";
+        public string Body {get;set;} = "";
 
         [JsonProperty(PropertyName="media_type")]
-        public MediaType Type {get;set;}
+        public MediaType Type {get;set;} = MediaType.Image;
 
         [JsonProperty(PropertyName="image_url")]
-        public string ImageUrl {get;set;}
+        public string ImageUrl {get;set;} = "";
 
         [JsonProperty(PropertyName="video_url")]
-        public string VideoUrl {get;set;}
+        public string VideoUrl {get;set;} = "";
 
         [JsonProperty(PropertyName="created_at")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public string VideoImageUrl { get; set; }
-        public string VideoId { get; set; }
+        [JsonIgnore]
+        public string VideoImageUrl { get; set; } = "";
+
+        [JsonIgnore]
+        public string VideoId { get; set; } = "";
 
         public enum MediaType
         {

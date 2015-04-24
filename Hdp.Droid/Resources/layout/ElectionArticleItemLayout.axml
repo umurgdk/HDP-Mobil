@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -8,10 +8,17 @@
     android:paddingBottom="26dp">
     <ImageView
         android:id="@+id/articleImage"
-        android:src="@android:drawable/ic_menu_gallery"
         android:background="#000"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+    <ImageView
+        android:src="@drawable/playicon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:id="@+id/playIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
     <TextView
         android:id="@+id/articleDate"
         android:text="1 Ocak 2015"
@@ -20,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/articleImage" />
     <TextView
         android:id="@+id/articleBody"
         android:text="Text"
@@ -29,5 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="10dp" />
-</LinearLayout>
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/articleDate" />
+</RelativeLayout>
