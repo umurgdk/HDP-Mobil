@@ -36,7 +36,7 @@ namespace Hdp.CoreRx.Services
 
         public async Task<List<Article>> GetArticlesAfterAsync (Article latestArticle, Priority priority)
         {
-            List<Article> articles = null;
+            List<Article> articles = new List<Article> ();
             Task<List<Article>> getArticlesTask;
 
             var timestamp = latestArticle.CreatedAt.ToUnixTimestamp ();
@@ -72,7 +72,7 @@ namespace Hdp.CoreRx.Services
 
         public async Task<List<Article>> GetRemoteArticlesAsync (Priority priority)
         {
-            List<Article> articles = null;
+            List<Article> articles = new List<Article> ();
             Task<List<Article>> getArticlesTask;
 
             switch (priority) {

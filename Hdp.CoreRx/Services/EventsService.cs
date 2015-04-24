@@ -31,7 +31,7 @@ namespace Hdp.CoreRx.Services
 
         public async Task<List<Event>> GetEventsAfterAsync (Event latestEvent, Priority priority)
         {
-            List<Event> articles = null;
+            List<Event> events = new List<Event> ();
             Task<List<Event>> getEventsTask;
 
             var timestamp = latestEvent.CreatedAt.ToUnixTimestamp ();
@@ -53,18 +53,18 @@ namespace Hdp.CoreRx.Services
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                articles = await Policy
+                events = await Policy
                     .Handle<WebException> ()
                     .WaitAndRetryAsync (2, retryAttempt => TimeSpan.FromSeconds (Math.Pow (2, retryAttempt)))
                     .ExecuteAsync(async () => await getEventsTask);
             }
 
-            return articles;
+            return events;
         }
 
         public async Task<List<Event>> GetRemoteEventsAsync (Priority priority)
         {
-            List<Event> events = null;
+            List<Event> events = new List<Event> ();
             Task<List<Event>> getEventsTask;
 
             switch (priority) {
