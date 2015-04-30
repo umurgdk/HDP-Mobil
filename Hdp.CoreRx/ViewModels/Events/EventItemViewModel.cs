@@ -8,6 +8,12 @@ namespace Hdp.CoreRx.ViewModels.Events
 {
     public class EventItemViewModel : ReactiveObject
 	{
+        private int id;
+        public int Id {
+            get { return this.id; }
+            set { this.RaiseAndSetIfChanged (ref this.id, value); }
+        }
+
         private string title;
         public string Title {
             get { return this.title; }
@@ -52,6 +58,7 @@ namespace Hdp.CoreRx.ViewModels.Events
             Location = model.Location;
             Time = model.Time;
             CreatedAt = model.CreatedAt;
+            Id = model.Id;
 
             this.WhenAnyValue (x => x.Time)
                 .Select (x => x.ToString ("dd MMMM yyyy", new CultureInfo("tr-TR")))
