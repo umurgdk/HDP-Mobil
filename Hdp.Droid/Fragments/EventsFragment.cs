@@ -59,9 +59,9 @@ namespace Hdp.Droid.Fragments
             view.SetBackgroundColor (Color.ParseColor ("#FFFFFF"));
 
             _refreshLayout = view.FindViewById<SwipeRefreshLayout> (Resource.Id.swipeContainer);
-            _refreshLayout.Refresh += (sender, e) => ViewModel.FetchNewEvents.Execute(null);
+            _refreshLayout.Refresh += (sender, e) => ViewModel.RefreshContent.Execute(null);
 
-            ViewModel.FetchNewEvents.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
+            ViewModel.RefreshContent.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
 
             _listView = view.FindViewById<ListView> (Resource.Id.eventsList);
             _listView.Divider = null;

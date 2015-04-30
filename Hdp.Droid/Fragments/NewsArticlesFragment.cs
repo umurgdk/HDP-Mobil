@@ -83,9 +83,9 @@ namespace Hdp.Droid.Fragments
         protected override View OnCreateContentView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             _refreshLayout = new SwipeRefreshLayout (container.Context);
-            _refreshLayout.Refresh += (sender, e) => ViewModel.FetchNewArticles.Execute(null);
+            _refreshLayout.Refresh += (sender, e) => ViewModel.RefreshContent.Execute(null);
 
-            ViewModel.FetchNewArticles.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
+            ViewModel.RefreshContent.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
 
             _listView = new ListView (container.Context);
             _listView.SetSelector (Resource.Color.transparent);
