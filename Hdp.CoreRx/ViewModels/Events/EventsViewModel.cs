@@ -8,10 +8,10 @@ using System.Reactive.Linq;
 
 namespace Hdp.CoreRx.ViewModels.Events
 {
-    public class EventsViewModel : BaseViewModel, ILoadingViewModel
+    public class EventsViewModel : BaseViewModel, ILoadingViewModel, IRefreshViewModel
     {
         public IReactiveDerivedList<EventItemViewModel> EventItems { get; private set; }
-        public IReactiveCommand FetchNewEvents { get; private set; }
+        public IReactiveCommand<object> RefreshContent { get; private set; }
 
         private ObservableAsPropertyHelper<bool> _isLoading;
         public bool IsLoading {
@@ -30,7 +30,7 @@ namespace Hdp.CoreRx.ViewModels.Events
                 .Select (x => x == 0)
                 .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            FetchNewEvents = ReactiveCommand.CreateCombined (
+            RefreshContent = ReactiveCommand.CreateCombined (
                 _app.FetchNewEvents.CanExecuteObservable, 
                 _app.FetchNewEvents);
         }

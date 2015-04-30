@@ -8,11 +8,11 @@ using System.Reactive.Linq;
 
 namespace Hdp.CoreRx.ViewModels.ElectionArticles
 {
-    public class ElectionArticlesViewModel : BaseViewModel, ILoadingViewModel
+    public class ElectionArticlesViewModel : BaseViewModel, ILoadingViewModel, IRefreshViewModel
     {
         public IReactiveDerivedList<ElectionArticleItemViewModel> ArticleItems { get; protected set; }
 
-        public IReactiveCommand FetchNewArticles { get; private set; }
+        public IReactiveCommand<object> RefreshContent { get; private set; }
         public IReactiveCommand<string> PlayVideoCommand { get; private set; }
 
         #region ILoadingViewModel implementation
@@ -48,7 +48,7 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
                 .Select (x => x == 0)
                 .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            FetchNewArticles = ReactiveCommand.CreateCombined (
+            RefreshContent = ReactiveCommand.CreateCombined (
                 _app.FetchNewElectionArticles.CanExecuteObservable, 
                 _app.FetchNewElectionArticles);
         }

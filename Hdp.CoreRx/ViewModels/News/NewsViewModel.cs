@@ -14,11 +14,11 @@ using Newtonsoft.Json;
 
 namespace Hdp.CoreRx.ViewModels
 {
-    public class NewsViewModel : BaseViewModel, ILoadingViewModel
+    public class NewsViewModel : BaseViewModel, ILoadingViewModel, IRefreshViewModel
     {
         public IReactiveDerivedList<ArticleItemViewModel> ArticleItems { get; protected set; }
 
-        public IReactiveCommand FetchNewArticles { get; private set; }
+        public IReactiveCommand<object> RefreshContent { get; private set; }
         public IReactiveCommand LoadMoreArticles { get; private set; }
 
         #region ILoadingViewModel implementation
@@ -57,7 +57,7 @@ namespace Hdp.CoreRx.ViewModels
                 .Select (x => x == 0)
                 .ToProperty (this, x => x.IsLoading, out _isLoading, true);
 
-            FetchNewArticles = ReactiveCommand.CreateCombined (
+            RefreshContent = ReactiveCommand.CreateCombined (
                 _application.FetchNewArticles.CanExecuteObservable, 
                 _application.FetchNewArticles);
         }
