@@ -154,6 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-29%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-57pt.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-57pt%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -303,6 +312,9 @@
     <BundleResource Include="Resources\election-icon.png" />
     <BundleResource Include="Resources\election-icon%402x.png" />
     <BundleResource Include="Resources\election-icon%403x.png" />
+    <BundleResource Include="Resources\SplashScreen.png" />
+    <BundleResource Include="Resources\SplashScreen%402x.png" />
+    <BundleResource Include="Resources\SplashScreen%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hdp.CoreRx\Hdp.CoreRx.csproj">
