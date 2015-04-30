@@ -46,7 +46,7 @@ namespace Hdp.TouchRx.ViewControllers.Events
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)
                 .Subscribe (x => {
-                    eventTitleLabel.Text = x.EventTitle;
+                    eventTitleLabel.Text = x.Title;
                     dateLabel.Text = x.DateText;
                     timeLabel.Text = x.TimeText;
                     placeLabel.Text = x.Location;
