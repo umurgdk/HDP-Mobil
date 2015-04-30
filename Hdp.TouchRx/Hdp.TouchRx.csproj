@@ -164,6 +164,7 @@
     <InterfaceDefinition Include="ViewControllers\Organization\OrganizationMenuItemViewCell.xib" />
     <InterfaceDefinition Include="ViewControllers\Organization\OrganizationPageViewController.xib" />
     <InterfaceDefinition Include="ViewControllers\ElectionArticles\ElectionArticleTableViewCell.xib" />
+    <InterfaceDefinition Include="Views\LoadingView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -296,6 +297,12 @@
     <BundleResource Include="Resources\Content\DanismaKurulu.md" />
     <BundleResource Include="Resources\Content\UzlastirmaKurulu.md" />
     <BundleResource Include="Resources\Content\Kurucular.md" />
+    <BundleResource Include="Resources\Loading.png" />
+    <BundleResource Include="Resources\Loading%402x.png" />
+    <BundleResource Include="Resources\Loading%403x.png" />
+    <BundleResource Include="Resources\election-icon.png" />
+    <BundleResource Include="Resources\election-icon%402x.png" />
+    <BundleResource Include="Resources\election-icon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hdp.CoreRx\Hdp.CoreRx.csproj">
