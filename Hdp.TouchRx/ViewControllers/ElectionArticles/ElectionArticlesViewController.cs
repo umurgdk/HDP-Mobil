@@ -15,12 +15,11 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
         public ElectionArticlesViewController () 
             : this (UITableViewStyle.Plain)
         {
-            TabBarItem.Image = new UIImage ("NewsIcon");
+            TabBarItem.Image = new UIImage ("election-icon");
 
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)
                 .Subscribe (vm => {
-                    ViewModel.LoadCommand.Execute(null);
                     ViewModel.PlayVideoCommand.Subscribe(videoId => {
                         var moviePlayer = new XCDYouTubeVideoPlayerViewController(videoId);
                         PresentMoviePlayerViewController(moviePlayer);
