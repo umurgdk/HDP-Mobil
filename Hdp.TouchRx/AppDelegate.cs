@@ -21,6 +21,7 @@ namespace Hdp.TouchRx
     {
         // class-level declarations
         UIWindow window;
+        HDPApp _hdpApp;
 
         //
         // This method is invoked when the application has loaded and is ready to run. In this
@@ -57,7 +58,8 @@ namespace Hdp.TouchRx
                 deviceType = DeviceType.ios3x;
             }
 
-            var hdpApp = new HDPApp(deviceType);
+            _hdpApp = new HDPApp(deviceType);
+            _hdpApp.Bootstrap ();
 
             window.RootViewController = new UINavigationController (new TabbedViewController());
             // make the window visible
