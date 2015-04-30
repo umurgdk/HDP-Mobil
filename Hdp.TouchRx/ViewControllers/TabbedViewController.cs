@@ -28,7 +28,7 @@ namespace Hdp.TouchRx.ViewControllers
             var newsViewModel = _serviceConstructor.Construct<NewsViewModel>();
             var eventsViewModel = _serviceConstructor.Construct<EventsViewModel> ();
             var electionArticlesViewModel = _serviceConstructor.Construct<ElectionArticlesViewModel> ();
-            var organizationMenuViewModel = new OrganizationMenuViewModel ();
+            var organizationMenuViewModel = _serviceConstructor.Construct<OrganizationMenuViewModel> ();
 
             ViewControllers = new UIViewController[] {
                 new ElectionArticlesViewController() { ViewModel = electionArticlesViewModel },
