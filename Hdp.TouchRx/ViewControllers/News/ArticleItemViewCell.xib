@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -60,14 +59,14 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="YO7-Cd-95l" secondAttribute="bottom" constant="-8" id="0Gq-q1-ITF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="YO7-Cd-95l" secondAttribute="trailing" constant="-8" id="9Qc-W6-dOk"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="afI-Cf-E1f" secondAttribute="bottom" constant="-8" id="Kpz-fz-s0U"/>
-                    <constraint firstItem="afI-Cf-E1f" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" constant="-8" id="R3Q-Qt-OoL"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="afI-Cf-E1f" secondAttribute="trailing" constant="-8" id="Tgd-aF-Kh5"/>
-                    <constraint firstItem="YO7-Cd-95l" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" constant="-8" id="d1r-4i-nWY"/>
-                    <constraint firstItem="afI-Cf-E1f" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" constant="-8" id="fEa-dj-RGx"/>
-                    <constraint firstItem="YO7-Cd-95l" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" constant="-8" id="wxY-7H-68n"/>
+                    <constraint firstAttribute="trailing" secondItem="YO7-Cd-95l" secondAttribute="trailing" id="3eo-tb-tRP"/>
+                    <constraint firstItem="afI-Cf-E1f" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="BLR-RS-hdB"/>
+                    <constraint firstAttribute="bottom" secondItem="afI-Cf-E1f" secondAttribute="bottom" id="Ca2-nX-CcV"/>
+                    <constraint firstItem="YO7-Cd-95l" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="Gxw-YQ-T9x"/>
+                    <constraint firstItem="YO7-Cd-95l" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="NFu-3M-YUH"/>
+                    <constraint firstItem="afI-Cf-E1f" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="WmX-UL-JWq"/>
+                    <constraint firstAttribute="bottom" secondItem="YO7-Cd-95l" secondAttribute="bottom" id="iRd-Db-uwT"/>
+                    <constraint firstAttribute="trailing" secondItem="afI-Cf-E1f" secondAttribute="trailing" id="ynk-vk-ayc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -76,7 +75,7 @@
                 <outlet property="thumbnailImageView" destination="afI-Cf-E1f" id="T7f-wU-84n"/>
                 <outlet property="titleLabel" destination="Qlf-G9-dhe" id="IJa-lh-a5I"/>
             </connections>
-            <point key="canvasLocation" x="198" y="350.5"/>
+            <point key="canvasLocation" x="274" y="349"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
