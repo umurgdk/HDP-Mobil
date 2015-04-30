@@ -22,6 +22,9 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
 		UIKit.UILabel articleSummaryLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel articleTitleLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIImageView playIcon { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -44,6 +47,11 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
 			if (playIcon != null) {
 				playIcon.Dispose ();
 				playIcon = null;
+			}
+
+			if (articleTitleLabel != null) {
+				articleTitleLabel.Dispose ();
+				articleTitleLabel = null;
 			}
 		}
 	}

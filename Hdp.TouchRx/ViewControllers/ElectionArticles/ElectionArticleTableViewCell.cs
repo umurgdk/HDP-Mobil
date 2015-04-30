@@ -9,6 +9,7 @@ using ReactiveUI;
 using Hdp.CoreRx.ViewModels.ElectionArticles;
 using Hdp.CoreRx.ViewModels;
 using Hdp.CoreRx.Models;
+using CoreGraphics;
 
 namespace Hdp.TouchRx.ViewControllers.ElectionArticles
 {
@@ -17,7 +18,7 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
         public static readonly UINib Nib = UINib.FromName ("ElectionArticleTableViewCell", NSBundle.MainBundle);
         public static readonly NSString Key = new NSString ("ElectionArticleTableViewCell");
 
-        public static readonly nfloat EstimatedHeight = 264.0f;
+        public static readonly nfloat EstimatedHeight = 218.0f;
 
         private string _imageUrl;
         public string ImageUrl {
@@ -51,6 +52,7 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
             articleImage.ClipsToBounds = true;
 
             articleSummaryLabel.PreferredMaxLayoutWidth = 320.0f;
+            articleTitleLabel.PreferredMaxLayoutWidth = 320.0f;
 
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)
@@ -69,6 +71,7 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
 
                     articleDateLabel.Text = vm.CreatedAt.ToString("dd MMMM yyyy");
                     articleSummaryLabel.Text = vm.Body;
+                    articleTitleLabel.Text = vm.Title;
 
                     SetNeedsLayout();
                     LayoutIfNeeded();
