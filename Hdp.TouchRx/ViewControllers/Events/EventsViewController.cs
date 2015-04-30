@@ -14,12 +14,6 @@ namespace Hdp.TouchRx.ViewControllers.Events
             : this(UITableViewStyle.Plain)
         {
             TabBarItem.Image = new UIImage ("CalendarIcon");
-
-            this.WhenAnyValue (x => x.ViewModel)
-                .Where (x => x != null)
-                .Subscribe (x => {
-                    ViewModel.LoadCommand.Execute (null); 
-                });
         }
 
         public EventsViewController (UIKit.UITableViewStyle withStyle) : base (withStyle)

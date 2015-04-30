@@ -14,12 +14,6 @@ namespace Hdp.TouchRx.ViewControllers
             : this(UITableViewStyle.Plain)
         {
             TabBarItem.Image = new UIImage ("NewsIcon");
-
-            this.WhenAnyValue (x => x.ViewModel)
-                .Where (x => x != null)
-                .Subscribe (x => {
-                    ViewModel.LoadCommand.Execute (null); 
-                });
         }
 
         public NewsViewController (UIKit.UITableViewStyle withStyle) : base (withStyle)
@@ -32,7 +26,7 @@ namespace Hdp.TouchRx.ViewControllers
             base.ViewDidLoad ();
 
             TableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
-            TableView.Source = new NewsTableViewSource (TableView, ViewModel.VisibleArticles);
+            TableView.Source = new NewsTableViewSource (TableView, ViewModel.ArticleItems);
         }
     }
 }
