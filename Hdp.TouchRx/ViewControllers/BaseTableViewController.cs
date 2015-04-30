@@ -6,6 +6,7 @@ using System.Reactive.Linq;
 using Hdp.CoreRx.ViewModels;
 using Splat;
 using Hdp.CoreRx.Services;
+using Foundation;
 
 namespace Hdp.TouchRx.ViewControllers
 {
@@ -66,6 +67,37 @@ namespace Hdp.TouchRx.ViewControllers
 
             this.WhenActivated(d => { });
 
+            this.WhenAnyValue (x => x.ViewModel)
+                .OfType<IRefreshViewModel> ()
+                .Subscribe (x => {
+                    RefreshControl = new UIRefreshControl() ;
+                    RefreshControl.ValueChanged += (sender, e) => {
+                        x.RefreshContent.Execute(null);
+                    };
+
+                    x.RefreshContent.Subscribe(isExecuting => {
+                        RefreshControl.EndRefreshing();
+                    });
+                });
+
+            this.WhenAnyValue (x => x.ViewModel)
+                .OfType<ILoadingViewModel> ()
+                .Select(x => x.WhenAnyValue(y => y.IsLoading))
+                .Switch()
+                .Subscribe (isLoading => {
+                    if (isLoading)
+                    {
+                        NSArray contents = NSBundle.MainBundle.LoadNib ("LoadingView", null, null);
+                        var view = contents.GetItem<UIView> (contents.Count - 1);
+
+                        TableView.BackgroundView = view;   
+                    }
+                    else
+                    {
+                        TableView.BackgroundView = null;
+                    }
+                });
+
 //            _loadingActivityView = new Lazy<UIActivityIndicatorView>(() =>
 //                new UIActivityIndicatorView(UIActivityIndicatorViewStyle.White)
 //                { 
@@ -92,8 +124,6 @@ namespace Hdp.TouchRx.ViewControllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-//            CreateSearchBar();
-//            LoadViewModel();
         }
 
 //        protected virtual void LoadViewModel()
