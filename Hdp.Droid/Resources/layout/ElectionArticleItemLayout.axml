@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:paddingBottom="26dp">
+    android:paddingBottom="16dp">
     <ImageView
         android:id="@+id/articleImage"
         android:background="#000"
@@ -38,5 +38,18 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/articleDate" />
+        android:layout_below="@id/articleTitle"
+        android:textSize="16sp" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/articleDate"
+        android:id="@+id/articleTitle"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="16dp"
+        android:textColor="#333"
+        android:textSize="20sp" />
 </RelativeLayout>

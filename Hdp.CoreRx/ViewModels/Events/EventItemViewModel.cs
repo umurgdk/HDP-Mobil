@@ -2,6 +2,7 @@ using System;
 using ReactiveUI;
 using Hdp.CoreRx.Models;
 using System.Reactive.Linq;
+using System.Globalization;
 
 namespace Hdp.CoreRx.ViewModels.Events
 {
@@ -53,7 +54,7 @@ namespace Hdp.CoreRx.ViewModels.Events
             CreatedAt = model.CreatedAt;
 
             this.WhenAnyValue (x => x.Time)
-                .Select (x => x.ToString ("dd MMMM yyyy"))
+                .Select (x => x.ToString ("dd MMMM yyyy", new CultureInfo("tr-TR")))
                 .ToProperty (this, x => x.DateText, out dateText);
 
             this.WhenAnyValue (x => x.Time)

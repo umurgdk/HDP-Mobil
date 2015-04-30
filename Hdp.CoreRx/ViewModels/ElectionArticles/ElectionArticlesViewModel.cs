@@ -40,7 +40,7 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
             });
 
             ArticleItems = _app.State.ElectionArticles.CreateDerivedCollection (
-                x => new ElectionArticleItemViewModel (x, gotoElectionArticle),
+                x => new ElectionArticleItemViewModel (x, gotoElectionArticle, true),
                 orderer: (x, y) => x.CreatedAt.CompareTo (y.CreatedAt) * -1);
 
 

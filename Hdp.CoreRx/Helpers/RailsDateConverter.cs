@@ -16,7 +16,6 @@ namespace Hdp.CoreRx.Helpers
 
         public override object ReadJson (JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            Debugger.Break ();
             return DateTime.Parse ((string)reader.Value);
         }
 

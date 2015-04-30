@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyProduct ("")]
 [assembly: AssemblyCopyright ("Umur Gedik")]
 [assembly: AssemblyTrademark ("")]
-[assembly: AssemblyCulture ("")]
+[assembly: AssemblyCulture ("tr-TR")]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,

@@ -55,7 +55,7 @@ namespace Hdp.CoreRx
             JsonConvert.DefaultSettings = 
                 () => new JsonSerializerSettings() { 
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                Converters = {new StringEnumConverter()}
+                Converters = {new MediaTypeConverter(), new StringEnumConverter()}
             };
 
             _apiService = new ApiService (deviceType: deviceType);

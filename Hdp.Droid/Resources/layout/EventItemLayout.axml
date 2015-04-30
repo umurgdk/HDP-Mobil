@@ -54,27 +54,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView2"
-        android:layout_marginTop="7dp"
         android:layout_marginLeft="4dp"
-        android:layout_below="@id/eventTitle"
         android:textColor="#3498DB"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_alignTop="@id/imageView2" />
     <ImageView
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_toRightOf="@id/eventTime"
         android:id="@+id/imageView3"
+        android:src="@drawable/locationicon"
+        android:layout_toRightOf="@id/eventTime"
         android:layout_alignTop="@id/imageView2"
-        android:layout_marginLeft="16dp"
-        android:src="@drawable/locationicon" />
+        android:layout_marginLeft="8dp" />
     <TextView
         android:text="Ankara Il Binasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView3"
         android:id="@+id/eventLocation"
-        android:layout_alignTop="@id/eventTime"
+        android:layout_alignTop="@id/imageView3"
         android:layout_marginLeft="4dp"
         android:textColor="#ffbe9800"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_marginRight="16dp" />
 </RelativeLayout>

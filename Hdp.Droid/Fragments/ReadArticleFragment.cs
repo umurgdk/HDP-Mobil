@@ -17,6 +17,7 @@ using ReactiveUI.AndroidSupport;
 using Hdp.CoreRx.ViewModels;
 using Hdp.Droid.DroidExtensions;
 using Android.Webkit;
+using System.Globalization;
 
 namespace Hdp.Droid.Fragments
 {
@@ -41,7 +42,7 @@ namespace Hdp.Droid.Fragments
                 .Where (x => x != null)
                 .Subscribe (x => {
                     Koush.UrlImageViewHelper.SetUrlDrawable(_articleImage, ViewModel.ImageUrl);
-                    _articleDate.Text = ViewModel.CreatedAt.ToString("dd MMMM yyyy");
+                    _articleDate.Text = ViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
                     _articleTitle.Text = ViewModel.ArticleTitle;
                         
                     _articleBody.Settings.JavaScriptEnabled = true;

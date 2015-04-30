@@ -6,6 +6,14 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
 {
     public class ElectionArticleItemViewModel : ReactiveObject, ICanGoToViewModel
     {
+        private static int _latestIndex = -1;
+
+        private int index;
+        public int Index {
+            get { return this.index; }
+            set { this.RaiseAndSetIfChanged (ref this.index, value); }
+        }
+
         private int id;
         public int Id {
             get { return this.id; }
@@ -64,7 +72,7 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
 
         public IReactiveCommand<object> GoToCommand { get; private set; }
 
-        public ElectionArticleItemViewModel (ElectionArticle model, Action<ElectionArticleItemViewModel> gotoCommand)
+        public ElectionArticleItemViewModel (ElectionArticle model, Action<ElectionArticleItemViewModel> gotoCommand, bool addIndex = false)
         {
             Model = model;
 
@@ -80,6 +88,17 @@ namespace Hdp.CoreRx.ViewModels.ElectionArticles
 
             GoToCommand = ReactiveCommand.Create ();
             GoToCommand.Subscribe (x => gotoCommand (this));
+
+            if (addIndex)
+            {
+                _latestIndex += 1;
+                Index = _latestIndex;
+            }
+        }
+
+        public static void ResetIndex ()
+        {
+            _latestIndex = -1;
         }
     }
 }

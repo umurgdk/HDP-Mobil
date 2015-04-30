@@ -22,6 +22,7 @@ using Hdp.CoreRx.Services;
 using Android.Support.V4.App;
 using Android.Graphics;
 using Android.Support.V4.Widget;
+using System.Globalization;
 
 namespace Hdp.Droid.Fragments
 {
@@ -54,7 +55,7 @@ namespace Hdp.Droid.Fragments
                 articleCategory.Text = itemViewModel.Category;
                 articleTitle.Text = itemViewModel.Title;
 
-                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy");
+                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
 
                 articleSummary.Text = itemViewModel.Summary;
             });

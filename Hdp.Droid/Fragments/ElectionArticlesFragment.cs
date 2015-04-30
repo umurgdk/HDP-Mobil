@@ -23,6 +23,7 @@ using ReactiveUI.AndroidSupport;
 using Google.YouTube.Player;
 using Android.Graphics;
 using Android.Support.V4.Widget;
+using System.Globalization;
 
 namespace Hdp.Droid.Fragments
 {
@@ -50,7 +51,17 @@ namespace Hdp.Droid.Fragments
                 var articleImage = view.FindViewById<ImageView>(Resource.Id.articleImage);
                 var articleDate = view.FindViewById<TextView>(Resource.Id.articleDate);
                 var articleBody = view.FindViewById<TextView>(Resource.Id.articleBody);
+                var articleTitle = view.FindViewById<TextView>(Resource.Id.articleTitle);
+
                 var playIcon = view.FindViewById<ImageView>(Resource.Id.playIcon);
+
+                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
+
+                articleBody.Text = itemViewModel.Body;
+                articleBody.Visibility = itemViewModel.Body == "" ? ViewStates.Gone : ViewStates.Visible;
+
+                articleTitle.Text = itemViewModel.Title;
+                articleTitle.Visibility = itemViewModel.Title == "" ? ViewStates.Gone : ViewStates.Visible;
 
                 if (itemViewModel.MediaType == ElectionArticle.MediaType.Image)
                 {
@@ -64,8 +75,16 @@ namespace Hdp.Droid.Fragments
                     Koush.UrlImageViewHelper.SetUrlDrawable(articleImage, itemViewModel.VideoImageUrl);
                 }
 
-                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy");
-                articleBody.Text = itemViewModel.Body;
+                else
+                {
+                    playIcon.Visibility = ViewStates.Gone;
+                    articleImage.Visibility = ViewStates.Gone;
+                }
+
+                var isEvenRow = itemViewModel.Index % 2 == 0;
+                var backgroundColor = Color.ParseColor(isEvenRow ? "#FAFAFA" : "#FFFFFF");
+
+                view.SetBackgroundColor(backgroundColor);
             });
         }
 
@@ -80,7 +99,6 @@ namespace Hdp.Droid.Fragments
             _listView.Adapter = _articlesAdapter;
             _listView.SetSelector (Resource.Color.transparent);
             _listView.SetBackgroundColor (Color.ParseColor ("#FFFFFF"));
-            _listView.Divider = null;
 
             _listView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
                 var itemViewModel = ViewModel.ArticleItems[e.Position];
