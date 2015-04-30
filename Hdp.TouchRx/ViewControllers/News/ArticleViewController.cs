@@ -40,6 +40,7 @@ namespace Hdp.TouchRx.ViewControllers.News
             View.BackgroundColor = UIColor.White;
 
             imageView.ContentMode = UIViewContentMode.ScaleAspectFill;
+            imageView.ClipsToBounds = true;
 
             titleLabel.Font = UIFont.PreferredHeadline;
             titleLabel.LineBreakMode = UILineBreakMode.WordWrap;
