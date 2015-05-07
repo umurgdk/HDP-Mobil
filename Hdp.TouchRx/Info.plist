@@ -5,9 +5,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>org.hdp.hdp</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -38,5 +38,14 @@
 	<string>Yakininizdaki burolari gormek icin konum bilginizi paylasabilirsiniz.</string>
 	<key>CFBundleDisplayName</key>
 	<string>HDP</string>
+	<key>UILaunchImages</key>
+	<array>
+		<dict>
+			<key>UILaunchImageName</key>
+			<string>SplashScreen</string>
+			<key>UILaunchImageSize</key>
+			<string>{320x568}</string>
+		</dict>
+	</array>
 </dict>
 </plist>

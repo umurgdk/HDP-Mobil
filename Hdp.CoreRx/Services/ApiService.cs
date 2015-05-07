@@ -8,10 +8,10 @@ namespace Hdp.CoreRx.Services
 {
     public class ApiService : IApiService
     {
-        public static string ApiBaseAddress = "http://api.hdp.org.tr";
+        public static string ApiBaseAddress = "http://192.168.0.10:3000";
         public static DeviceType Device = DeviceType.ios;
 
-        public ApiService (string apiBaseAddress = "http://api.hdp.org.tr", DeviceType deviceType = DeviceType.ios)
+        public ApiService (string apiBaseAddress = "http://192.168.0.10:3000", DeviceType deviceType = DeviceType.ios)
         {
             Device = deviceType;
             ApiBaseAddress = apiBaseAddress;

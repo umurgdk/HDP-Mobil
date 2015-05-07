@@ -24,6 +24,8 @@ using Google.YouTube.Player;
 using Android.Graphics;
 using Android.Support.V4.Widget;
 using System.Globalization;
+using Splat;
+using Hdp.CoreRx.Services;
 
 namespace Hdp.Droid.Fragments
 {
@@ -34,58 +36,56 @@ namespace Hdp.Droid.Fragments
         ListView _listView;
         SwipeRefreshLayout _refreshLayout;
 
-        public ElectionArticlesFragment (ElectionArticlesViewModel viewModel)
-            :base()
+        public ElectionArticlesFragment ()
         {
-            ViewModel = viewModel;
+            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
+            ViewModel = serviceConstructor.Construct<ElectionArticlesViewModel> ();
 
-            _articlesAdapter = new ReactiveListAdapter<ElectionArticleItemViewModel> (ViewModel.ArticleItems, (itemViewModel, viewGroup) => {
-                var inflater = LayoutInflater.From(viewGroup.Context);
-                var view = inflater.Inflate(Resource.Layout.ElectionArticleItemLayout, null);
+            _articlesAdapter = new ReactiveListAdapter<ElectionArticleItemViewModel> (ViewModel.ArticleItems, CreateItemView, InitItemView);
+        }
 
-                var playIcon = view.FindViewById<ImageView>(Resource.Id.playIcon);
+        View CreateItemView (ElectionArticleItemViewModel itemViewModel, ViewGroup viewGroup)
+        {
+            var inflater = LayoutInflater.From (viewGroup.Context);
+            var view = inflater.Inflate (Resource.Layout.ElectionArticleItemLayout, null);
+            var playIcon = view.FindViewById<ImageView> (Resource.Id.playIcon);
+            playIcon.Visibility = ViewStates.Gone;
+
+            return view;
+        }
+
+        void InitItemView (ElectionArticleItemViewModel itemViewModel, View view)
+        {
+            var articleImage = view.FindViewById<ImageView> (Resource.Id.articleImage);
+            var articleDate = view.FindViewById<TextView> (Resource.Id.articleDate);
+            var articleBody = view.FindViewById<TextView> (Resource.Id.articleBody);
+            var articleTitle = view.FindViewById<TextView> (Resource.Id.articleTitle);
+
+            var playIcon = view.FindViewById<ImageView> (Resource.Id.playIcon);
+
+            articleDate.Text = itemViewModel.CreatedAt.ToString ("dd MMMM yyyy", new CultureInfo ("tr-TR"));
+
+            articleBody.Text = itemViewModel.Body;
+            articleBody.Visibility = itemViewModel.Body == "" ? ViewStates.Gone : ViewStates.Visible;
+
+            articleTitle.Text = itemViewModel.Title;
+            articleTitle.Visibility = itemViewModel.Title == "" ? ViewStates.Gone : ViewStates.Visible;
+
+            if (itemViewModel.MediaType == ElectionArticle.MediaType.Image) {
                 playIcon.Visibility = ViewStates.Gone;
+                Koush.UrlImageViewHelper.SetUrlDrawable (articleImage, itemViewModel.ImageUrl);
+            } else if (itemViewModel.MediaType == ElectionArticle.MediaType.Video) {
+                playIcon.Visibility = ViewStates.Visible;
+                Koush.UrlImageViewHelper.SetUrlDrawable (articleImage, itemViewModel.VideoImageUrl);
+            } else {
+                playIcon.Visibility = ViewStates.Gone;
+                articleImage.Visibility = ViewStates.Gone;
+            }
 
-                return view;
-            }, (itemViewModel, view) => {
-                var articleImage = view.FindViewById<ImageView>(Resource.Id.articleImage);
-                var articleDate = view.FindViewById<TextView>(Resource.Id.articleDate);
-                var articleBody = view.FindViewById<TextView>(Resource.Id.articleBody);
-                var articleTitle = view.FindViewById<TextView>(Resource.Id.articleTitle);
+            var isEvenRow = itemViewModel.Index % 2 == 0;
+            var backgroundColor = Color.ParseColor (isEvenRow ? "#FAFAFA" : "#FFFFFF");
 
-                var playIcon = view.FindViewById<ImageView>(Resource.Id.playIcon);
-
-                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
-
-                articleBody.Text = itemViewModel.Body;
-                articleBody.Visibility = itemViewModel.Body == "" ? ViewStates.Gone : ViewStates.Visible;
-
-                articleTitle.Text = itemViewModel.Title;
-                articleTitle.Visibility = itemViewModel.Title == "" ? ViewStates.Gone : ViewStates.Visible;
-
-                if (itemViewModel.MediaType == ElectionArticle.MediaType.Image)
-                {
-                    playIcon.Visibility = ViewStates.Gone;
-                    Koush.UrlImageViewHelper.SetUrlDrawable(articleImage, itemViewModel.ImageUrl);
-                }
-
-                else if (itemViewModel.MediaType == ElectionArticle.MediaType.Video)
-                {
-                    playIcon.Visibility = ViewStates.Visible;
-                    Koush.UrlImageViewHelper.SetUrlDrawable(articleImage, itemViewModel.VideoImageUrl);
-                }
-
-                else
-                {
-                    playIcon.Visibility = ViewStates.Gone;
-                    articleImage.Visibility = ViewStates.Gone;
-                }
-
-                var isEvenRow = itemViewModel.Index % 2 == 0;
-                var backgroundColor = Color.ParseColor(isEvenRow ? "#FAFAFA" : "#FFFFFF");
-
-                view.SetBackgroundColor(backgroundColor);
-            });
+            view.SetBackgroundColor (backgroundColor);
         }
 
         protected override View OnCreateContentView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -93,7 +93,7 @@ namespace Hdp.Droid.Fragments
             _refreshLayout = new SwipeRefreshLayout (container.Context);
             _refreshLayout.Refresh += (sender, e) => ViewModel.RefreshContent.Execute(null);
 
-            ViewModel.RefreshContent.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
+            ViewModel.RefreshContent.IsExecuting.BindTo (_refreshLayout, y => y.Refreshing);
 
             _listView = new ListView (container.Context);
             _listView.Adapter = _articlesAdapter;

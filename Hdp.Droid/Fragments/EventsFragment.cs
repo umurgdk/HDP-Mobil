@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 
 using Android.App;
@@ -11,12 +11,14 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-
-using ReactiveUI.AndroidSupport;
-using Hdp.CoreRx.ViewModels.Events;
-using ReactiveUI;
 using Android.Graphics;
 using Android.Support.V4.Widget;
+
+using ReactiveUI;
+using ReactiveUI.AndroidSupport;
+using Hdp.CoreRx.ViewModels.Events;
+using Splat;
+using Hdp.CoreRx.Services;
 
 namespace Hdp.Droid.Fragments
 {
@@ -27,9 +29,10 @@ namespace Hdp.Droid.Fragments
         ListView _listView;
         SwipeRefreshLayout _refreshLayout;
 
-        public EventsFragment (EventsViewModel viewModel)
+        public EventsFragment ()
         {
-            ViewModel = viewModel;
+            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
+            ViewModel = serviceConstructor.Construct<EventsViewModel> ();
 
             _eventsAdapter = new ReactiveListAdapter<EventItemViewModel> (ViewModel.EventItems, CreateItemView, InitItemView);
         }
@@ -60,13 +63,12 @@ namespace Hdp.Droid.Fragments
 
             _refreshLayout = view.FindViewById<SwipeRefreshLayout> (Resource.Id.swipeContainer);
             _refreshLayout.Refresh += (sender, e) => ViewModel.RefreshContent.Execute(null);
-
             ViewModel.RefreshContent.IsExecuting.BindTo (_refreshLayout, x => x.Refreshing);
 
             _listView = view.FindViewById<ListView> (Resource.Id.eventsList);
+            _listView.Adapter = _eventsAdapter;
             _listView.Divider = null;
             _listView.DividerHeight = 0;
-            _listView.Adapter = _eventsAdapter;
 
             return view;
         }

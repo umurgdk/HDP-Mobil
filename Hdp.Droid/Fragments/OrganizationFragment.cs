@@ -16,6 +16,9 @@ using ReactiveUI.AndroidSupport;
 
 using Hdp.CoreRx.ViewModels.Organization;
 using Hdp.CoreRx.ViewModels;
+using Splat;
+using Hdp.CoreRx.Services;
+using Hdp.CoreRx.ViewModels.Events;
 
 namespace Hdp.Droid.Fragments
 {
@@ -24,9 +27,10 @@ namespace Hdp.Droid.Fragments
         ReactiveListAdapter<OrganizationMenuItemViewModel> _menuAdapter;
         GridView _gridView;
 
-        public OrganizationFragment (OrganizationMenuViewModel viewModel)
+        public OrganizationFragment ()
         {
-            ViewModel = viewModel;
+            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
+            ViewModel = serviceConstructor.Construct<OrganizationMenuViewModel> ();
 
             _menuAdapter = new ReactiveListAdapter<OrganizationMenuItemViewModel> (ViewModel.OrganizationItems, CreateMenuItemView, InitializeMenuItemView);
 

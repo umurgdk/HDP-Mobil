@@ -28,6 +28,7 @@ UpgradeLog.*
 # packages & components
 packages/
 Components/
+releases/
 
 Hdp.Droid/releases
 *.swp

@@ -19,6 +19,7 @@ using Hdp.CoreRx.Services;
 using Hdp.CoreRx.Extensions;
 using System.Threading.Tasks;
 using Hdp.CoreRx.Helpers;
+using System.Reactive.Subjects;
 
 namespace Hdp.CoreRx
 {
@@ -31,18 +32,18 @@ namespace Hdp.CoreRx
         EventsService _eventsService;
         ElectionArticlesService _electionArticlesService;
 
+        ContentRepository _repository;
+
         IBlobCache _cache;
 
         public IReactiveCommand<List<Article>> FetchNewArticles { get; private set; }
-        public IReactiveCommand<List<Article>> LoadMoreArticles { get; private set; }
-
-        public IReactiveCommand<List<ElectionArticle>> FetchNewElectionArticles { get; private set; } 
-        public IReactiveCommand<List<ElectionArticle>> LoadMoreElectionArticles { get; private set; }
-
+        public IReactiveCommand<List<ElectionArticle>> FetchNewElectionArticles { get; private set; }
         public IReactiveCommand<List<Event>> FetchNewEvents { get; private set; }
-        public IReactiveCommand<List<Event>> LoadMoreEvents { get; private set; }
 
-        public HDPApp(DeviceType deviceType)
+
+        public Subject<string> UserCity = new Subject<string>();
+
+        public HDPApp(DeviceType deviceType, IBlobCache cache)
         {
             RxApp.DefaultExceptionHandler = Observer.Create ((Exception e) => {
                 System.Diagnostics.Debug.WriteLine(e.Message); 
@@ -67,6 +68,12 @@ namespace Hdp.CoreRx
 
             State = new AppState ();
 
+            UserCity.Subscribe (city => {
+                System.Diagnostics.Debug.WriteLine("Current city is: {0}", city); 
+            });
+
+            _repository = new ContentRepository (_newsService, _electionArticlesService, _eventsService, cache);
+
             ImplementCommands ();
         }
 
@@ -75,25 +82,14 @@ namespace Hdp.CoreRx
             FetchNewArticles = ReactiveCommand.CreateAsyncTask (async param => {
                 var priority = param == null ? Priority.UserInitiated : (Priority)param;
 
-                if (State.Articles.Count > 0)
-                {
-                    var latestArticle = State.Articles.OrderByDescending(article => article.CreatedAt).First();
-                    return await _newsService.GetArticlesAfterAsync(latestArticle, (Priority)priority);
-                }
-                else
-                {
-                    return await _newsService.GetRemoteArticlesAsync((Priority)priority);
-                }
-            });
-            
-            FetchNewArticles.Subscribe (async newArticles => {
-                State.Articles.InsertRange(0, newArticles);
+                var newAndUpdatedArticles = await _repository.FetchNewArticles(State.Articles, priority);
+                State.Articles.InsertRange(0, newAndUpdatedArticles.Item1);
 
-                var articlesKeyValue = newArticles.ToDictionary(x => "article-" + x.Id.ToString());
-
-                foreach (var pair in articlesKeyValue) {
-                    await _cache.InsertObject<Article> (pair.Key, pair.Value);
+                for (int i = 0; i < newAndUpdatedArticles.Item2.Count; i++) {
+                    State.Articles[i] = newAndUpdatedArticles.Item2[i];
                 }
+
+                return newAndUpdatedArticles.Item1;
             });
 
             FetchNewElectionArticles = ReactiveCommand.CreateAsyncTask (async param => {
@@ -152,7 +148,7 @@ namespace Hdp.CoreRx
 //            await BlobCache.LocalMachine.Vacuum ();
             #endif
 
-            // Fill Articles
+            // Load Articles
             try {
                 var articles = await _cache.GetAllObjects<Article> ();
                 State.Articles.InsertRange(0, articles);
@@ -162,6 +158,7 @@ namespace Hdp.CoreRx
                 FetchNewArticles.Execute (Priority.Background);
             }
 
+            // Load Election Articles
             try {
                 var electionArticles = await _cache.GetAllObjects<ElectionArticle> ();
                 State.ElectionArticles.InsertRange(0, electionArticles);
@@ -171,6 +168,7 @@ namespace Hdp.CoreRx
                 FetchNewElectionArticles.Execute (Priority.UserInitiated);
             }
 
+            // Load Events
             try {
                 var events = await _cache.GetAllObjects<Event>();
                 State.Events.InsertRange(0, events);
@@ -180,6 +178,7 @@ namespace Hdp.CoreRx
                 FetchNewEvents.Execute (Priority.Background);
             }
 
+            // Load hardcoded Organization Pages
             State.OrganizationMenuItems.AddRange (OrganizationMenuItem.GetMenu ());
         }
     }

@@ -51,8 +51,8 @@ namespace Hdp.TouchRx.ViewControllers.ElectionArticles
 
             articleImage.ClipsToBounds = true;
 
-            articleSummaryLabel.PreferredMaxLayoutWidth = 320.0f;
-            articleTitleLabel.PreferredMaxLayoutWidth = 320.0f;
+            articleSummaryLabel.PreferredMaxLayoutWidth = UIScreen.MainScreen.Bounds.Width;
+            articleTitleLabel.PreferredMaxLayoutWidth = UIScreen.MainScreen.Bounds.Width;
 
             this.WhenAnyValue (x => x.ViewModel)
                 .Where (x => x != null)

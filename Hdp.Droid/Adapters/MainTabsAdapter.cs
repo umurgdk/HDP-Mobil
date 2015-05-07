@@ -21,19 +21,12 @@ namespace Hdp.Droid.Adapters
 
         public MainTabsAdapter (FragmentManager fm) : base (fm)
         {
-            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
-
-            var electionArticlesViewModel = serviceConstructor.Construct<ElectionArticlesViewModel> ();
-            var newsViewModel = serviceConstructor.Construct<NewsViewModel> ();
-            var eventsViewModel = serviceConstructor.Construct<EventsViewModel> ();
-            var organizationMenuViewModel = serviceConstructor.Construct<OrganizationMenuViewModel> ();
-
             _titles = CharSequence.ArrayFromStringArray(new string[] {"Secim", "Haberler", "Etkinlikler", "Parti"});
             _fragments = new List<Fragment> {
-                new ElectionArticlesFragment(electionArticlesViewModel),
-                new NewsArticlesFragment(newsViewModel),
-                new EventsFragment(eventsViewModel),
-                new OrganizationFragment(organizationMenuViewModel)
+                new ElectionArticlesFragment(),
+                new NewsArticlesFragment(),
+                new EventsFragment(),
+                new OrganizationFragment()
             };
         }
 

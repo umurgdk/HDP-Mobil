@@ -1,6 +1,9 @@
 ﻿using System;
 using Hdp.CoreRx.Models;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Net.Http;
+using ModernHttpClient;
 
 namespace Hdp.CoreRx.Helpers
 {

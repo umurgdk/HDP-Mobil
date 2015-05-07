@@ -33,38 +33,17 @@ namespace Hdp.Droid.Fragments
         ListView _listView;
         SwipeRefreshLayout _refreshLayout;
 
-        public NewsArticlesFragment (NewsViewModel viewModel)
+        public NewsArticlesFragment ()
         {
-            ViewModel = viewModel;
+            var serviceConstructor = Locator.Current.GetService<IServiceConstructor> ();
+            ViewModel = serviceConstructor.Construct<NewsViewModel> ();
 
-            _newsAdapter = new ReactiveListAdapter<ArticleItemViewModel> (ViewModel.ArticleItems, (itemViewModel, viewGroup) => {
-                var inflater = LayoutInflater.From(viewGroup.Context);
-                return inflater.Inflate(Resource.Layout.ArticleItemLayout, null);
-            }, (itemViewModel, view) => {
-                var articleImage = view.FindViewById<ImageView>(Resource.Id.articleImage);
-                var articleCategory = view.FindViewById<TextView>(Resource.Id.articleCategory);
-                var articleTitle = view.FindViewById<TextView>(Resource.Id.articleTitle);
-                var articleDate = view.FindViewById<TextView>(Resource.Id.articleDate);
-                var articleSummary = view.FindViewById<TextView>(Resource.Id.articleSummary);
-
-                if (itemViewModel.ImageUrl.Length > 0)
-                {
-                    Koush.UrlImageViewHelper.SetUrlDrawable(articleImage, itemViewModel.ImageUrl);
-                }
-
-                articleCategory.Text = itemViewModel.Category;
-                articleTitle.Text = itemViewModel.Title;
-
-                articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
-
-                articleSummary.Text = itemViewModel.Summary;
-            });
+            _newsAdapter = new ReactiveListAdapter<ArticleItemViewModel> (ViewModel.ArticleItems, CreateItemView, InitItemView);
 
             if (ViewModel is IRoutingViewModel)
             {
                 ViewModel.RequestNavigation.Subscribe (x => {
                     var viewModelViewService = Locator.Current.GetService<IViewModelViewService>();
-                    var serviceConstructor = Locator.Current.GetService<IServiceConstructor>();
                     var viewType = viewModelViewService.GetViewFor(x.GetType());
                     var view = (IViewFor)serviceConstructor.Construct(viewType);
 
@@ -78,6 +57,33 @@ namespace Hdp.Droid.Fragments
                         .Commit();
                 });
             }
+        }
+
+        protected View CreateItemView (ArticleItemViewModel itemViewModel, ViewGroup viewGroup)
+        {
+            var inflater = LayoutInflater.From(viewGroup.Context);
+            return inflater.Inflate(Resource.Layout.ArticleItemLayout, null);
+        }
+
+        protected void InitItemView (ArticleItemViewModel itemViewModel, View view)
+        {
+            var articleImage = view.FindViewById<ImageView>(Resource.Id.articleImage);
+            var articleCategory = view.FindViewById<TextView>(Resource.Id.articleCategory);
+            var articleTitle = view.FindViewById<TextView>(Resource.Id.articleTitle);
+            var articleDate = view.FindViewById<TextView>(Resource.Id.articleDate);
+            var articleSummary = view.FindViewById<TextView>(Resource.Id.articleSummary);
+
+            if (itemViewModel.ImageUrl.Length > 0)
+            {
+                Koush.UrlImageViewHelper.SetUrlDrawable(articleImage, itemViewModel.ImageUrl);
+            }
+
+            articleCategory.Text = itemViewModel.Category;
+            articleTitle.Text = itemViewModel.Title;
+
+            articleDate.Text = itemViewModel.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("tr-TR"));
+
+            articleSummary.Text = itemViewModel.Summary;
         }
 
         protected override View OnCreateContentView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
